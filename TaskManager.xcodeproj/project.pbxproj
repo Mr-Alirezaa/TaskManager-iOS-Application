@@ -17,6 +17,7 @@
 		C0BFC55F2290309800C06D80 /* Shabnam-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC55B2290306900C06D80 /* Shabnam-Bold.ttf */; };
 		C0BFC5602290309800C06D80 /* Shabnam-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC55C2290306900C06D80 /* Shabnam-Light.ttf */; };
 		C0BFC5612290309800C06D80 /* Shabnam.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC55E2290308C00C06D80 /* Shabnam.ttf */; };
+		C0BFC56322905EBD00C06D80 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC56222905EBD00C06D80 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C0BFC55B2290306900C06D80 /* Shabnam-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Bold.ttf"; sourceTree = "<group>"; };
 		C0BFC55C2290306900C06D80 /* Shabnam-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Light.ttf"; sourceTree = "<group>"; };
 		C0BFC55E2290308C00C06D80 /* Shabnam.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Shabnam.ttf; sourceTree = "<group>"; };
+		C0BFC56222905EBD00C06D80 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				C0BFC5392290067400C06D80 /* TaskManager */,
+				C0BFC5462290067500C06D80 /* Info.plist */,
 				C0BFC5382290067400C06D80 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,12 +67,11 @@
 		C0BFC5392290067400C06D80 /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
-				C0BFC53C2290067400C06D80 /* OnboardingViewController.swift */,
-				C0BFC53E2290067400C06D80 /* Main.storyboard */,
+				C0BFC56422905ED900C06D80 /* View Controllers */,
+				C0BFC56622905F0F00C06D80 /* Views */,
+				C0BFC56522905EE600C06D80 /* Storyboards */,
+				C0BFC56722905F2D00C06D80 /* Constants */,
 				C0BFC54C2290069A00C06D80 /* Supporting Files */,
-				C0BFC5462290067500C06D80 /* Info.plist */,
-				C0BFC54D22900BBA00C06D80 /* TMButton.swift */,
-				C0BFC54F22901A6D00C06D80 /* Constants.swift */,
 			);
 			path = TaskManager;
 			sourceTree = "<group>";
@@ -93,6 +95,39 @@
 				C0BFC55E2290308C00C06D80 /* Shabnam.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C0BFC56422905ED900C06D80 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C0BFC53C2290067400C06D80 /* OnboardingViewController.swift */,
+				C0BFC56222905EBD00C06D80 /* LoginViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C0BFC56522905EE600C06D80 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C0BFC53E2290067400C06D80 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C0BFC56622905F0F00C06D80 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0BFC54D22900BBA00C06D80 /* TMButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C0BFC56722905F2D00C06D80 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C0BFC54F22901A6D00C06D80 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +207,7 @@
 				C0BFC53D2290067400C06D80 /* OnboardingViewController.swift in Sources */,
 				C0BFC53B2290067400C06D80 /* AppDelegate.swift in Sources */,
 				C0BFC54E22900BBA00C06D80 /* TMButton.swift in Sources */,
+				C0BFC56322905EBD00C06D80 /* LoginViewController.swift in Sources */,
 				C0BFC55022901A6D00C06D80 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

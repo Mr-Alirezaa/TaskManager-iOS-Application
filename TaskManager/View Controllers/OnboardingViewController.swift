@@ -10,6 +10,12 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
 
+    @IBOutlet weak var backgroundView: UIView! {
+        didSet {
+            backgroundView.layer.cornerRadius = 10
+            backgroundView.clipsToBounds = true
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
