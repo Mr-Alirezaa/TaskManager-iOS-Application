@@ -1,57 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Shabnam-Bold.ttf">
+            <string>Shabnam-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Onboarding View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="JXJ-CB-gX6">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBt-2k-zu4">
-                                <rect key="frame" x="20" y="74" width="374" height="758"/>
+                                <rect key="frame" x="20" y="74" width="335" height="674"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="S5T-uC-3bB">
-                                        <rect key="frame" x="27" y="49" width="320" height="320"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="S5T-uC-3bB" secondAttribute="height" multiplier="1:1" id="KTd-h5-TMs"/>
-                                        </constraints>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="S5T-uC-3bB">
+                                        <rect key="frame" x="20" y="20" width="295" height="325"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="کار های خود را آسان مدیریت کنید" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNc-D3-YX3">
-                                        <rect key="frame" x="38" y="390" width="299" height="72"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <nil key="textColor"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MRP-AK-d7L">
+                                        <rect key="frame" x="20" y="556" width="295" height="88"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIz-RH-feo" customClass="TMButton" customModule="TaskManager" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="295" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="aeW-kR-v3A"/>
+                                                </constraints>
+                                                <state key="normal" title="ورود"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="_styleName" value="fill"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRH-yA-bmc" customClass="TMButton" customModule="TaskManager" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="48" width="295" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="F33-mG-I1b"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="ثبت نام"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="_styleName" value="outline"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="کار های خود را آسان مدیریت کنید" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNc-D3-YX3">
+                                        <rect key="frame" x="38" y="370" width="260" height="71.333333333333314"/>
+                                        <fontDescription key="fontDescription" name="Shabnam-Bold" family="Shabnam" pointSize="26"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIz-RH-feo">
-                                        <rect key="frame" x="20" y="598" width="334" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="aeW-kR-v3A"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.72235014507671225" green="0.91670504352301363" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="AIz-RH-feo" firstAttribute="leading" secondItem="OBt-2k-zu4" secondAttribute="leading" constant="20" id="Ix0-Td-Ur8"/>
-                                    <constraint firstAttribute="trailing" secondItem="YNc-D3-YX3" secondAttribute="trailing" constant="37" id="eQJ-dH-1u7"/>
-                                    <constraint firstItem="YNc-D3-YX3" firstAttribute="leading" secondItem="OBt-2k-zu4" secondAttribute="leading" constant="38" id="h6h-5t-aTn"/>
-                                    <constraint firstAttribute="trailing" secondItem="S5T-uC-3bB" secondAttribute="trailing" constant="27" id="mPm-9a-7P2"/>
-                                    <constraint firstAttribute="trailing" secondItem="AIz-RH-feo" secondAttribute="trailing" constant="20" id="mTp-Lr-9FW"/>
-                                    <constraint firstItem="S5T-uC-3bB" firstAttribute="leading" secondItem="OBt-2k-zu4" secondAttribute="leading" constant="27" id="xmv-vo-ZjO"/>
+                                    <constraint firstAttribute="trailing" secondItem="YNc-D3-YX3" secondAttribute="trailing" constant="37" id="5db-hz-r3h"/>
+                                    <constraint firstItem="MRP-AK-d7L" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YNc-D3-YX3" secondAttribute="bottom" constant="30" id="BDR-2g-UjB"/>
+                                    <constraint firstAttribute="trailing" secondItem="S5T-uC-3bB" secondAttribute="trailing" constant="20" id="CRX-yM-fUh"/>
+                                    <constraint firstItem="S5T-uC-3bB" firstAttribute="leading" secondItem="OBt-2k-zu4" secondAttribute="leading" constant="20" id="Hzr-65-gY8"/>
+                                    <constraint firstAttribute="trailing" secondItem="MRP-AK-d7L" secondAttribute="trailing" constant="20" id="Lsb-L9-qAL"/>
+                                    <constraint firstItem="S5T-uC-3bB" firstAttribute="top" secondItem="OBt-2k-zu4" secondAttribute="top" constant="20" id="MCh-49-WKg"/>
+                                    <constraint firstItem="YNc-D3-YX3" firstAttribute="leading" secondItem="OBt-2k-zu4" secondAttribute="leading" constant="38" id="nIb-E7-Fd5"/>
+                                    <constraint firstItem="YNc-D3-YX3" firstAttribute="top" secondItem="S5T-uC-3bB" secondAttribute="bottom" constant="25" id="nfG-tP-FZW"/>
+                                    <constraint firstAttribute="bottom" secondItem="MRP-AK-d7L" secondAttribute="bottom" constant="30" id="qbg-JL-vcO"/>
+                                    <constraint firstItem="MRP-AK-d7L" firstAttribute="leading" secondItem="OBt-2k-zu4" secondAttribute="leading" constant="20" id="t4j-GR-ceh"/>
                                 </constraints>
                             </view>
                         </subviews>

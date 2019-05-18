@@ -10,10 +10,10 @@ import UIKit
 
 @IBDesignable class TMButton: UIButton {
     
-    var style: TMButtonStyle?
-    @IBInspectable private var styleName: String? {
+    var style: TMButtonStyle? = .fill
+    @IBInspectable private var _styleName: String? {
         didSet {
-            style = TMButtonStyle(rawValue: "styleName")
+            style = TMButtonStyle(rawValue: _styleName ?? "fill")
         }
     }
 
@@ -26,15 +26,31 @@ import UIKit
         setupButton()
     }
     
-    func setupButton() {
+    private func setupButton() {
+        var titleFontColor = UIColor()
+        
         if let style = style {
             switch style {
             case .fill:
-                self.backgroundColor = 
+                self.backgroundColor = TMColors.lightBlue
+                titleFontColor = TMColors.white
             case .outline:
-                <#code#>
+                self.backgroundColor = TMColors.clear
+                titleFontColor = TMColors.lightBlue
+                self.layer.borderWidth = 2.0
+                self.layer.borderColor = TMColors.lightBlue.cgColor
             }
         }
+        self.layer.cornerRadius = 5
+        
+        self.titleLabel?.font = UIFont(name: TMFonts.shabnamMedium, size: 15)
+        self.setTitleColor(titleFontColor, for: .normal)
+        
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupButton()
     }
 
 }
