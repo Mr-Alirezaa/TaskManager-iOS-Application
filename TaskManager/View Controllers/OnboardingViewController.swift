@@ -16,11 +16,5 @@ class OnboardingViewController: UIViewController {
             backgroundView.clipsToBounds = true
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
 }
 

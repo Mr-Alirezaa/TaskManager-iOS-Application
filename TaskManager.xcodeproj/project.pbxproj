@@ -51,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				C0BFC5392290067400C06D80 /* TaskManager */,
-				C0BFC5462290067500C06D80 /* Info.plist */,
 				C0BFC5382290067400C06D80 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +66,8 @@
 		C0BFC5392290067400C06D80 /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
+				C0BFC5462290067500C06D80 /* Info.plist */,
+				C0BFC5682290605500C06D80 /* App Delegate */,
 				C0BFC56422905ED900C06D80 /* View Controllers */,
 				C0BFC56622905F0F00C06D80 /* Views */,
 				C0BFC56522905EE600C06D80 /* Storyboards */,
@@ -80,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				C0BFC551229023C600C06D80 /* Fonts */,
-				C0BFC53A2290067400C06D80 /* AppDelegate.swift */,
 				C0BFC5412290067500C06D80 /* Assets.xcassets */,
 				C0BFC5432290067500C06D80 /* LaunchScreen.storyboard */,
 			);
@@ -128,6 +128,14 @@
 				C0BFC54F22901A6D00C06D80 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		C0BFC5682290605500C06D80 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				C0BFC53A2290067400C06D80 /* AppDelegate.swift */,
+			);
+			path = "App Delegate";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
