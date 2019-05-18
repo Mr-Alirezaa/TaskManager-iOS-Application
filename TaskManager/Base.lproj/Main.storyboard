@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="JXJ-CB-gX6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBt-2k-zu4">
+                                <rect key="frame" x="20" y="74" width="374" height="758"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="S5T-uC-3bB">
+                                        <rect key="frame" x="27" y="49" width="320" height="320"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="S5T-uC-3bB" secondAttribute="height" multiplier="1:1" id="KTd-h5-TMs"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="کار های خود را آسان مدیریت کنید" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNc-D3-YX3">
+                                        <rect key="frame" x="38" y="390" width="299" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIz-RH-feo">
+                                        <rect key="frame" x="20" y="598" width="334" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="aeW-kR-v3A"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="AIz-RH-feo" firstAttribute="leading" secondItem="OBt-2k-zu4" secondAttribute="leading" constant="20" id="Ix0-Td-Ur8"/>
+                                    <constraint firstAttribute="trailing" secondItem="YNc-D3-YX3" secondAttribute="trailing" constant="37" id="eQJ-dH-1u7"/>
+                                    <constraint firstItem="YNc-D3-YX3" firstAttribute="leading" secondItem="OBt-2k-zu4" secondAttribute="leading" constant="38" id="h6h-5t-aTn"/>
+                                    <constraint firstAttribute="trailing" secondItem="S5T-uC-3bB" secondAttribute="trailing" constant="27" id="mPm-9a-7P2"/>
+                                    <constraint firstAttribute="trailing" secondItem="AIz-RH-feo" secondAttribute="trailing" constant="20" id="mTp-Lr-9FW"/>
+                                    <constraint firstItem="S5T-uC-3bB" firstAttribute="leading" secondItem="OBt-2k-zu4" secondAttribute="leading" constant="27" id="xmv-vo-ZjO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OBt-2k-zu4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="25s-B2-viV"/>
+                            <constraint firstAttribute="bottom" secondItem="JXJ-CB-gX6" secondAttribute="bottom" id="6sj-kU-9SX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OBt-2k-zu4" secondAttribute="bottom" constant="30" id="IFB-jB-ZhN"/>
+                            <constraint firstItem="JXJ-CB-gX6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Pjb-80-xVs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OBt-2k-zu4" secondAttribute="trailing" constant="20" id="VX7-nC-SUL"/>
+                            <constraint firstItem="JXJ-CB-gX6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cQe-qe-aNs"/>
+                            <constraint firstAttribute="trailing" secondItem="JXJ-CB-gX6" secondAttribute="trailing" id="ePP-HP-DBI"/>
+                            <constraint firstItem="OBt-2k-zu4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="fzD-B9-Eep"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="750" height="1334"/>
+        <image name="logo" width="410" height="325"/>
+    </resources>
+</document>
