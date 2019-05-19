@@ -41,7 +41,7 @@ import UIKit
                 self.layer.borderColor = TMColors.lightBlue.cgColor
             }
         }
-        self.layer.cornerRadius = 5
+        self.layer.cornerRadius = TMConstants.cornerRadius
         
         self.titleLabel?.font = UIFont(name: TMFonts.shabnamMedium, size: 15)
         self.setTitleColor(titleFontColor, for: .normal)
@@ -50,7 +50,7 @@ import UIKit
     
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-        setupButton()
+//        setupButton()
     }
 
 }

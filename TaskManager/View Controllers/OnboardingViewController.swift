@@ -16,5 +16,9 @@ class OnboardingViewController: UIViewController {
             backgroundView.clipsToBounds = true
         }
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
+    }
 }
 

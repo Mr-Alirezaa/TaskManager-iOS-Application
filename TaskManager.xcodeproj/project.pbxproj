@@ -18,6 +18,8 @@
 		C0BFC5602290309800C06D80 /* Shabnam-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC55C2290306900C06D80 /* Shabnam-Light.ttf */; };
 		C0BFC5612290309800C06D80 /* Shabnam.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC55E2290308C00C06D80 /* Shabnam.ttf */; };
 		C0BFC56322905EBD00C06D80 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC56222905EBD00C06D80 /* LoginViewController.swift */; };
+		C0BFC56A229060BC00C06D80 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC569229060BC00C06D80 /* RegisterViewController.swift */; };
+		C0BFC56C229075CD00C06D80 /* TMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC56B229075CD00C06D80 /* TMTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		C0BFC55C2290306900C06D80 /* Shabnam-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Light.ttf"; sourceTree = "<group>"; };
 		C0BFC55E2290308C00C06D80 /* Shabnam.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Shabnam.ttf; sourceTree = "<group>"; };
 		C0BFC56222905EBD00C06D80 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C0BFC569229060BC00C06D80 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C0BFC56B229075CD00C06D80 /* TMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 			children = (
 				C0BFC53C2290067400C06D80 /* OnboardingViewController.swift */,
 				C0BFC56222905EBD00C06D80 /* LoginViewController.swift */,
+				C0BFC569229060BC00C06D80 /* RegisterViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				C0BFC54D22900BBA00C06D80 /* TMButton.swift */,
+				C0BFC56B229075CD00C06D80 /* TMTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +221,8 @@
 				C0BFC53D2290067400C06D80 /* OnboardingViewController.swift in Sources */,
 				C0BFC53B2290067400C06D80 /* AppDelegate.swift in Sources */,
 				C0BFC54E22900BBA00C06D80 /* TMButton.swift in Sources */,
+				C0BFC56A229060BC00C06D80 /* RegisterViewController.swift in Sources */,
+				C0BFC56C229075CD00C06D80 /* TMTextField.swift in Sources */,
 				C0BFC56322905EBD00C06D80 /* LoginViewController.swift in Sources */,
 				C0BFC55022901A6D00C06D80 /* Constants.swift in Sources */,
 			);
