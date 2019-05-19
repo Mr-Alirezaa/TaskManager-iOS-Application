@@ -10,12 +10,21 @@ import UIKit
 
 @IBDesignable class TMButton: UIButton {
     
+    // MARK: - Button style
+    
+    enum TMButtonStyle: String {
+        case fill
+        case outline
+    }
+    
     var style: TMButtonStyle? = .fill
     @IBInspectable private var _styleName: String? {
         didSet {
             style = TMButtonStyle(rawValue: _styleName ?? "fill")
         }
     }
+    
+    // MARK: - Initialization
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,14 +57,11 @@ import UIKit
         
     }
     
+    // MARK: - Interface builder prepration
+    
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
 //        setupButton()
     }
 
-}
-
-enum TMButtonStyle: String {
-    case fill
-    case outline
 }

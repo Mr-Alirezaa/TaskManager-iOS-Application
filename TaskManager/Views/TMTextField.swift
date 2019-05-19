@@ -11,6 +11,8 @@ import UIKit
 @IBDesignable
 class TMTextField: UITextField {
     
+    // MARK: - TextFieldStyle
+    
     enum TMTextFieldStyle: String {
         case first
         case last
@@ -25,6 +27,8 @@ class TMTextField: UITextField {
             textFieldStyle = TMTextFieldStyle(rawValue: _textFieldStyle)
         }
     }
+    
+    // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,10 +49,13 @@ class TMTextField: UITextField {
         setNeedsDisplay()
     }
     
+    // MARK: - Interface builder prepration
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
 //        setupTextField()
     }
+    
+    // MARK: - Placeholder and textfield text paddings
     
     private let placeholderPadding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     
@@ -63,6 +70,8 @@ class TMTextField: UITextField {
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: placeholderPadding)
     }
+    
+    // MARK: - Custom drawing
     
     override func draw(_ rect: CGRect) {
         //// Rectangle Drawing
