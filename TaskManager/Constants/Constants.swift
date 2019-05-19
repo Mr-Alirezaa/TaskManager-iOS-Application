@@ -20,4 +20,10 @@ struct TMColors {
     static let lightBlue = UIColor(red: 92/255, green: 184/255, blue: 225/255, alpha: 1)
     static let white = UIColor.white
     static let clear = UIColor.clear
+    static let black = UIColor.black
+}
+
+
+struct TMConstants {
+    static let cornerRadius: CGFloat = 6
 }
