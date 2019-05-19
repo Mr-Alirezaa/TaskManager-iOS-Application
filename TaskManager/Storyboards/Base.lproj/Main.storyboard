@@ -141,7 +141,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="T13-ge-9to">
                                         <rect key="frame" x="40" y="178.33333333333331" width="255" height="80"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="نام کاربری" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBj-3f-OEu" customClass="TMTextField" customModule="TaskManager" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ایمیل" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBj-3f-OEu" customClass="TMTextField" customModule="TaskManager" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="255" height="40"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -266,7 +266,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="k2H-Az-qQC">
                                         <rect key="frame" x="40" y="158.33333333333331" width="255" height="120"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="نام کاربری" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgg-es-NdP" customClass="TMTextField" customModule="TaskManager" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ایمیل" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgg-es-NdP" customClass="TMTextField" customModule="TaskManager" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="255" height="40"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -298,18 +298,6 @@
                                             <constraint firstAttribute="height" constant="120" id="keo-ZC-FCf"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1o-th-LiH">
-                                        <rect key="frame" x="-54.333333333333336" y="8" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="szV-nZ-MX9"/>
-                                            <constraint firstAttribute="height" constant="40" id="wsK-KG-hSZ"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.45098039220000002" green="0.71426337959999997" blue="0.86668854949999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" image="arrow-left"/>
-                                        <connections>
-                                            <action selector="backButton:" destination="GVX-q7-PM3" eventType="touchUpInside" id="Sv4-h1-2Mg"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlY-a9-GMZ">
                                         <rect key="frame" x="10" y="10" width="40" height="40"/>
                                         <constraints>
@@ -332,8 +320,8 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="_styleName" value="fill"/>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBa-WB-4Yl">
-                                        <rect key="frame" x="88" y="333.33333333333331" width="158" height="18"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBa-WB-4Yl">
+                                        <rect key="frame" x="88.666666666666686" y="333.33333333333331" width="158" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="Duc-qb-OZV"/>
                                             <constraint firstAttribute="width" constant="158" id="JUl-x5-Y6m"/>
@@ -359,6 +347,7 @@
                                     <constraint firstItem="NlY-a9-GMZ" firstAttribute="top" secondItem="W8t-fh-O9j" secondAttribute="top" constant="10" id="aRN-QY-OxE"/>
                                     <constraint firstItem="k2H-Az-qQC" firstAttribute="leading" secondItem="W8t-fh-O9j" secondAttribute="leading" constant="40" id="hEo-wV-WrH"/>
                                     <constraint firstAttribute="trailing" secondItem="oai-S7-IjS" secondAttribute="trailing" constant="20" id="iPx-MG-5nP"/>
+                                    <constraint firstItem="RBa-WB-4Yl" firstAttribute="centerX" secondItem="W8t-fh-O9j" secondAttribute="centerX" id="obl-SW-aUK"/>
                                     <constraint firstItem="k2H-Az-qQC" firstAttribute="top" secondItem="Ilq-ca-jaf" secondAttribute="bottom" constant="10" id="vRm-4g-zBZ"/>
                                     <constraint firstItem="Cts-Ku-dMz" firstAttribute="top" secondItem="k2H-Az-qQC" secondAttribute="bottom" constant="10" id="vtA-9X-R5T"/>
                                     <constraint firstAttribute="trailing" secondItem="Ilq-ca-jaf" secondAttribute="trailing" constant="20" id="xWB-TF-S4F"/>

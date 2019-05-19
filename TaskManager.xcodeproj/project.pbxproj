@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C08470C122915C3F00C65264 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08470C022915C3F00C65264 /* ConnectionManager.swift */; };
 		C0BFC53B2290067400C06D80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC53A2290067400C06D80 /* AppDelegate.swift */; };
 		C0BFC53D2290067400C06D80 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC53C2290067400C06D80 /* OnboardingViewController.swift */; };
 		C0BFC5402290067400C06D80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC53E2290067400C06D80 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C08470C022915C3F00C65264 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		C0BFC5372290067400C06D80 /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BFC53A2290067400C06D80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0BFC53C2290067400C06D80 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C08470BF22915BF700C65264 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C08470C022915C3F00C65264 /* ConnectionManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C0BFC52E2290067400C06D80 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +82,7 @@
 			children = (
 				C0BFC5462290067500C06D80 /* Info.plist */,
 				C0BFC5682290605500C06D80 /* App Delegate */,
+				C08470BF22915BF700C65264 /* Models */,
 				C0BFC56422905ED900C06D80 /* View Controllers */,
 				C0BFC56622905F0F00C06D80 /* Views */,
 				C0BFC56522905EE600C06D80 /* Storyboards */,
@@ -223,6 +234,7 @@
 				C0BFC54E22900BBA00C06D80 /* TMButton.swift in Sources */,
 				C0BFC56A229060BC00C06D80 /* RegisterViewController.swift in Sources */,
 				C0BFC56C229075CD00C06D80 /* TMTextField.swift in Sources */,
+				C08470C122915C3F00C65264 /* ConnectionManager.swift in Sources */,
 				C0BFC56322905EBD00C06D80 /* LoginViewController.swift in Sources */,
 				C0BFC55022901A6D00C06D80 /* Constants.swift in Sources */,
 			);
