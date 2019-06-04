@@ -7,56 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C06B131022A6FC6A00FF86D4 /* TMConnectionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C06B130E22A6FC6A00FF86D4 /* TMConnectionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C06B131322A6FC6A00FF86D4 /* TMConnectionManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C06B130C22A6FC6A00FF86D4 /* TMConnectionManager.framework */; };
-		C06B131422A6FC6A00FF86D4 /* TMConnectionManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C06B130C22A6FC6A00FF86D4 /* TMConnectionManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C06B131A22A6FCC900FF86D4 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08470C022915C3F00C65264 /* ConnectionManager.swift */; };
-		C0BFC53B2290067400C06D80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC53A2290067400C06D80 /* AppDelegate.swift */; };
-		C0BFC53D2290067400C06D80 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC53C2290067400C06D80 /* OnboardingViewController.swift */; };
-		C0BFC5402290067400C06D80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC53E2290067400C06D80 /* Main.storyboard */; };
-		C0BFC5422290067500C06D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC5412290067500C06D80 /* Assets.xcassets */; };
-		C0BFC5452290067500C06D80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC5432290067500C06D80 /* LaunchScreen.storyboard */; };
-		C0BFC54E22900BBA00C06D80 /* TMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC54D22900BBA00C06D80 /* TMButton.swift */; };
-		C0BFC55022901A6D00C06D80 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC54F22901A6D00C06D80 /* Constants.swift */; };
-		C0BFC55F2290309800C06D80 /* Shabnam-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC55B2290306900C06D80 /* Shabnam-Bold.ttf */; };
-		C0BFC5602290309800C06D80 /* Shabnam-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC55C2290306900C06D80 /* Shabnam-Light.ttf */; };
-		C0BFC5612290309800C06D80 /* Shabnam.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC55E2290308C00C06D80 /* Shabnam.ttf */; };
-		C0BFC56322905EBD00C06D80 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC56222905EBD00C06D80 /* LoginViewController.swift */; };
-		C0BFC56A229060BC00C06D80 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC569229060BC00C06D80 /* RegisterViewController.swift */; };
-		C0BFC56C229075CD00C06D80 /* TMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC56B229075CD00C06D80 /* TMTextField.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C06B131122A6FC6A00FF86D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C0BFC52F2290067400C06D80 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C06B130B22A6FC6A00FF86D4;
-			remoteInfo = TMConnectionManager;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		C06B131822A6FC6A00FF86D4 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C06B131422A6FC6A00FF86D4 /* TMConnectionManager.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C06B130C22A6FC6A00FF86D4 /* TMConnectionManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMConnectionManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C06B130E22A6FC6A00FF86D4 /* TMConnectionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMConnectionManager.h; sourceTree = "<group>"; };
-		C06B130F22A6FC6A00FF86D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C06B131922A6FCBC00FF86D4 /* TaskManagerPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TaskManagerPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C06B131F22A7117500FF86D4 /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08470C022915C3F00C65264 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
-		C0BFC5372290067400C06D80 /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BFC53A2290067400C06D80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0BFC53C2290067400C06D80 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		C0BFC53F2290067400C06D80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,30 +38,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0BFC5342290067400C06D80 /* Frameworks */ = {
+		C06B131C22A7117500FF86D4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C06B131322A6FC6A00FF86D4 /* TMConnectionManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C06B130D22A6FC6A00FF86D4 /* TMConnectionManager */ = {
+		C06B132022A7117500FF86D4 /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
-				C06B130E22A6FC6A00FF86D4 /* TMConnectionManager.h */,
-				C08470C022915C3F00C65264 /* ConnectionManager.swift */,
-				C06B130F22A6FC6A00FF86D4 /* Info.plist */,
+				C0BFC56622905F0F00C06D80 /* Views */,
+				C0BFC56522905EE600C06D80 /* Storyboards */,
+				C0BFC56722905F2D00C06D80 /* Constants */,
+				C0BFC54C2290069A00C06D80 /* Supporting Files */,
+				C0BFC5682290605500C06D80 /* App Delegate */,
+				C08470BF22915BF700C65264 /* Models */,
+				C0BFC56422905ED900C06D80 /* View Controllers */,
 			);
-			path = TMConnectionManager;
+			path = TaskManager;
 			sourceTree = "<group>";
 		};
 		C08470BF22915BF700C65264 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C08470C022915C3F00C65264 /* ConnectionManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -112,9 +73,7 @@
 		C0BFC52E2290067400C06D80 = {
 			isa = PBXGroup;
 			children = (
-				C06B131922A6FCBC00FF86D4 /* TaskManagerPlayground.playground */,
-				C0BFC5392290067400C06D80 /* TaskManager */,
-				C06B130D22A6FC6A00FF86D4 /* TMConnectionManager */,
+				C06B132022A7117500FF86D4 /* TaskManager */,
 				C0BFC5382290067400C06D80 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -122,31 +81,17 @@
 		C0BFC5382290067400C06D80 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C0BFC5372290067400C06D80 /* TaskManager.app */,
 				C06B130C22A6FC6A00FF86D4 /* TMConnectionManager.framework */,
+				C06B131F22A7117500FF86D4 /* TaskManager.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C0BFC5392290067400C06D80 /* TaskManager */ = {
-			isa = PBXGroup;
-			children = (
-				C0BFC5462290067500C06D80 /* Info.plist */,
-				C0BFC5682290605500C06D80 /* App Delegate */,
-				C08470BF22915BF700C65264 /* Models */,
-				C0BFC56422905ED900C06D80 /* View Controllers */,
-				C0BFC56622905F0F00C06D80 /* Views */,
-				C0BFC56522905EE600C06D80 /* Storyboards */,
-				C0BFC56722905F2D00C06D80 /* Constants */,
-				C0BFC54C2290069A00C06D80 /* Supporting Files */,
-			);
-			path = TaskManager;
 			sourceTree = "<group>";
 		};
 		C0BFC54C2290069A00C06D80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				C0BFC551229023C600C06D80 /* Fonts */,
+				C0BFC5462290067500C06D80 /* Info.plist */,
 				C0BFC5412290067500C06D80 /* Assets.xcassets */,
 				C0BFC5432290067500C06D80 /* LaunchScreen.storyboard */,
 			);
@@ -213,7 +158,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C06B131022A6FC6A00FF86D4 /* TMConnectionManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,23 +182,21 @@
 			productReference = C06B130C22A6FC6A00FF86D4 /* TMConnectionManager.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C0BFC5362290067400C06D80 /* TaskManager */ = {
+		C06B131E22A7117500FF86D4 /* TaskManager */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0BFC5492290067500C06D80 /* Build configuration list for PBXNativeTarget "TaskManager" */;
+			buildConfigurationList = C06B132E22A7117700FF86D4 /* Build configuration list for PBXNativeTarget "TaskManager" */;
 			buildPhases = (
-				C0BFC5332290067400C06D80 /* Sources */,
-				C0BFC5342290067400C06D80 /* Frameworks */,
-				C0BFC5352290067400C06D80 /* Resources */,
-				C06B131822A6FC6A00FF86D4 /* Embed Frameworks */,
+				C06B131B22A7117500FF86D4 /* Sources */,
+				C06B131C22A7117500FF86D4 /* Frameworks */,
+				C06B131D22A7117500FF86D4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C06B131222A6FC6A00FF86D4 /* PBXTargetDependency */,
 			);
 			name = TaskManager;
 			productName = TaskManager;
-			productReference = C0BFC5372290067400C06D80 /* TaskManager.app */;
+			productReference = C06B131F22A7117500FF86D4 /* TaskManager.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -270,7 +212,7 @@
 					C06B130B22A6FC6A00FF86D4 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
-					C0BFC5362290067400C06D80 = {
+					C06B131E22A7117500FF86D4 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
@@ -288,8 +230,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C0BFC5362290067400C06D80 /* TaskManager */,
 				C06B130B22A6FC6A00FF86D4 /* TMConnectionManager */,
+				C06B131E22A7117500FF86D4 /* TaskManager */,
 			);
 		};
 /* End PBXProject section */
@@ -302,16 +244,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0BFC5352290067400C06D80 /* Resources */ = {
+		C06B131D22A7117500FF86D4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0BFC55F2290309800C06D80 /* Shabnam-Bold.ttf in Resources */,
-				C0BFC5602290309800C06D80 /* Shabnam-Light.ttf in Resources */,
-				C0BFC5612290309800C06D80 /* Shabnam.ttf in Resources */,
-				C0BFC5452290067500C06D80 /* LaunchScreen.storyboard in Resources */,
-				C0BFC5422290067500C06D80 /* Assets.xcassets in Resources */,
-				C0BFC5402290067400C06D80 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,29 +262,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0BFC5332290067400C06D80 /* Sources */ = {
+		C06B131B22A7117500FF86D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0BFC53D2290067400C06D80 /* OnboardingViewController.swift in Sources */,
-				C0BFC53B2290067400C06D80 /* AppDelegate.swift in Sources */,
-				C0BFC54E22900BBA00C06D80 /* TMButton.swift in Sources */,
-				C0BFC56A229060BC00C06D80 /* RegisterViewController.swift in Sources */,
-				C0BFC56C229075CD00C06D80 /* TMTextField.swift in Sources */,
-				C0BFC56322905EBD00C06D80 /* LoginViewController.swift in Sources */,
-				C0BFC55022901A6D00C06D80 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C06B131222A6FC6A00FF86D4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C06B130B22A6FC6A00FF86D4 /* TMConnectionManager */;
-			targetProxy = C06B131122A6FC6A00FF86D4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C0BFC53E2290067400C06D80 /* Main.storyboard */ = {
@@ -423,6 +344,44 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C06B132F22A7117700FF86D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 33DVPZ7L7T;
+				INFOPLIST_FILE = "$(SRCROOT)/TaskManager/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mralirezaa.TaskManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C06B133022A7117700FF86D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 33DVPZ7L7T;
+				INFOPLIST_FILE = "$(SRCROOT)/TaskManager/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mralirezaa.TaskManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -542,44 +501,6 @@
 			};
 			name = Release;
 		};
-		C0BFC54A2290067500C06D80 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 33DVPZ7L7T;
-				INFOPLIST_FILE = TaskManager/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mralirezaa.TaskManager;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		C0BFC54B2290067500C06D80 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 33DVPZ7L7T;
-				INFOPLIST_FILE = TaskManager/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mralirezaa.TaskManager;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -592,20 +513,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C06B132E22A7117700FF86D4 /* Build configuration list for PBXNativeTarget "TaskManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C06B132F22A7117700FF86D4 /* Debug */,
+				C06B133022A7117700FF86D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C0BFC5322290067400C06D80 /* Build configuration list for PBXProject "TaskManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0BFC5472290067500C06D80 /* Debug */,
 				C0BFC5482290067500C06D80 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C0BFC5492290067500C06D80 /* Build configuration list for PBXNativeTarget "TaskManager" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C0BFC54A2290067500C06D80 /* Debug */,
-				C0BFC54B2290067500C06D80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

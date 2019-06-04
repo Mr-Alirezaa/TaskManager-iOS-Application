@@ -8,17 +8,23 @@
 
 import Foundation
 
-struct ConnectionManager {
+public struct ConnectionManager {
+    
+    public static let `default` = ConnectionManager()
+    
+    private init() {
+        
+    }
     
     private typealias Parameteres = [String : Any]
     
     
-    func login(username: String, password: String, onSuccess: () -> Void) {
+    public func login(username: String, password: String, onSuccess: @escaping ([String : Any]) -> Void) {
         let session = URLSession.shared
         
         let loginURL = URL(string: "http://buzztaab.com:8081/api/login")!
         var request = URLRequest(url: loginURL)
-        request.httpMethod = "get"
+        request.httpMethod = "post"
 
         request.timeoutInterval = 20
         
@@ -30,8 +36,13 @@ struct ConnectionManager {
         
         session.dataTask(with: request) { (data: Data?, urlResponse: URLResponse?, error: Error?) in
             if let data = data {
-                let jsonObject = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                print(jsonObject!)
+                do {
+                    let jsonObject = try (JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String : Any])
+                    let body = jsonObject["body"] as! [String : Any]
+                    onSuccess(body)
+                } catch let err {
+                    print(err)
+                }
             }
         }.resume()
         
