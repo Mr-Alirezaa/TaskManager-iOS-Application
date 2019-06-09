@@ -43,7 +43,7 @@ class TMTextField: UITextField {
     private func setupTextField() {
         self.layer.borderColor = TMColors.black.cgColor
         
-        self.font = UIFont(name: TMFonts.shabnamLight, size: 15)
+        self.defaultTextAttributes[.font] = UIFont(name: TMFonts.shabnamMedium, size: 15)!
         self.textAlignment = NSTextAlignment.right
         
         setNeedsDisplay()
@@ -52,7 +52,7 @@ class TMTextField: UITextField {
     // MARK: - Interface builder prepration
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-//        setupTextField()
+        setupTextField()
     }
     
     // MARK: - Placeholder and textfield text paddings
