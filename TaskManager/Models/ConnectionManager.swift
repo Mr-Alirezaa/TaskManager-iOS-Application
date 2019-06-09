@@ -16,7 +16,7 @@ public struct ConnectionManager {
         
     }
     
-    private typealias Parameteres = [String : Any]
+    private typealias JSONDictionary = [String : Any]
     
     
     func login(username: String, password: String, onSuccess: @escaping (Result<User, Error>) -> ()) {
@@ -30,7 +30,7 @@ public struct ConnectionManager {
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let parameters: Parameteres = ["email" : username, "password": password]
+        let parameters: JSONDictionary = ["email" : username, "password": password]
         
         request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         
@@ -43,11 +43,11 @@ public struct ConnectionManager {
             var apiError: Error?
             if let data = data {
                 do {
-                    let jsonObject = try (JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String : Any])
+                    let jsonObject = try (JSONSerialization.jsonObject(with: data, options: .allowFragments) as! JSONDictionary)
                     print("Initial Serialization.")
                     print("Code is: \(jsonObject["code"] as! Int)")
                     if jsonObject["code"] as! Int == 200 {
-                        let body = (jsonObject["body"] as! [String : Any])
+                        let body = (jsonObject["body"] as! JSONDictionary)
                         let newJson = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
                         let decoder = JSONDecoder()
                         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -70,11 +70,73 @@ public struct ConnectionManager {
         }.resume()
     }
     
-    func register(withEmail email: String, password: String, onSuccess: (Result<User, Error>) -> ()) {
+    func register(withEmail email: String, password: String, onSuccess: @escaping (Result<User, Error>) -> ()) {
+        let session = URLSession.shared
+        let registerURL: URL! = URL(string: "http://buzztaab.com:8081/api/register")
         
+        var request = URLRequest(url: registerURL)
+        request.timeoutInterval = 20
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "post"
+        
+        let parameters: JSONDictionary = ["email" : email, "password" : password]
+        let body = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        
+        request.httpBody = body
+        
+        session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                onSuccess(.failure(error))
+                return
+            }
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! JSONDictionary
+                    var code = json["code"] as? Int
+                    if code == nil {
+                        code = -1
+                    }
+                    
+                    if code == 200 {
+                        let body = json["body"] as! JSONDictionary
+                        
+                        let newJson = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+                        let decoder = JSONDecoder()
+                        decoder.keyDecodingStrategy = .convertFromSnakeCase
+                        if let json = newJson {
+                            let user = try? decoder.decode(User.self, from: json)
+                            
+                            onSuccess(.success(user!))
+                        }
+                    } else if code == -1 {
+                        if let message = json["message"] as? String {
+                            if message == "Validation error: لطفا ایمیل معتبر وارد کنید" {
+                                onSuccess(.failure(TMError.SignUpError.invalidEmailAddress))
+                            } else if message == "این ایمیل قبلا ثبت شده" {
+                                onSuccess(.failure(TMError.SignUpError.userAlreadyRegistered))
+                            }
+                        }
+                    }
+                } catch let parseError {
+                    onSuccess(.failure(parseError))
+                    return
+                }
+            }
+        }
     }
 }
 
 enum TMError: LocalizedError {
     case notFound
+    
+    enum SignUpError: LocalizedError {
+        case userAlreadyRegistered
+        case invalidEmailAddress
+    }
+    
+    enum SignInError: LocalizedError {
+        case userNotFound
+    }
 }
+
+
