@@ -8,10 +8,22 @@
 
 import Foundation
 
-struct User {
+public struct User: Codable, CustomStringConvertible {
+    public var description: String {
+        return "User with email: \(self.email!), password: \(self.password!)"
+    }
+    
     var firstName: String?
     var lastName: String?
     var email: String?
     var password: String?
     var phoneNumber: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case email
+        case password
+        case phoneNumber = "phone_number"
+    }
 }
