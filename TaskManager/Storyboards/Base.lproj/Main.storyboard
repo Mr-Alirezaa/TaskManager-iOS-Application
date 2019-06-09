@@ -49,7 +49,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="_styleName" value="fill"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="GVX-q7-PM3" kind="show" id="a8K-Rw-9o7"/>
+                                                    <segue destination="GVX-q7-PM3" kind="show" identifier="" id="a8K-Rw-9o7"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRH-yA-bmc" customClass="TMButton" customModule="TaskManager" customModuleProvider="target">
@@ -173,6 +173,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="_styleName" value="fill"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginButtonTap:" destination="GVX-q7-PM3" eventType="touchUpInside" id="m0x-om-VvS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9A-w9-rCe">
                                         <rect key="frame" x="109.66666666666666" y="313.33333333333331" width="116" height="18"/>
@@ -187,6 +190,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1Z-CN-82S">
                                         <rect key="frame" x="8" y="8" width="40" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="BOm-Tc-TXR"/>
                                             <constraint firstAttribute="width" constant="40" id="msa-Ag-nFq"/>
@@ -213,10 +217,10 @@
                                     <constraint firstItem="VTW-Qk-AWX" firstAttribute="top" secondItem="e0W-et-OMO" secondAttribute="bottom" constant="20" id="bgG-1T-qFS"/>
                                     <constraint firstItem="e0W-et-OMO" firstAttribute="top" secondItem="pfd-B5-F4m" secondAttribute="top" constant="50" id="bh0-gq-Cfl"/>
                                     <constraint firstItem="HZ9-pN-hFo" firstAttribute="top" secondItem="T13-ge-9to" secondAttribute="bottom" constant="10" id="eh3-5s-7cB"/>
-                                    <constraint firstAttribute="trailing" secondItem="s1Z-CN-82S" secondAttribute="trailing" constant="287" id="fG1-SJ-a7e"/>
                                     <constraint firstItem="HZ9-pN-hFo" firstAttribute="leading" secondItem="pfd-B5-F4m" secondAttribute="leading" constant="40" id="lXd-TE-v5c"/>
                                     <constraint firstAttribute="trailing" secondItem="e0W-et-OMO" secondAttribute="trailing" constant="20" id="m3z-Q5-N6T"/>
                                     <constraint firstAttribute="bottom" secondItem="s9A-w9-rCe" secondAttribute="bottom" constant="10" id="sge-lM-vcw"/>
+                                    <constraint firstItem="s1Z-CN-82S" firstAttribute="leading" secondItem="pfd-B5-F4m" secondAttribute="leading" constant="8" id="vpO-gu-OVp"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -232,10 +236,29 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NvW-nh-EiX"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="VBj-3f-OEu" id="XMC-6D-3Jg"/>
+                        <outlet property="passwordTextField" destination="cFF-km-9Zl" id="075-hd-TCl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dkp-CJ-GCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1980" y="-225.36945812807883"/>
+        </scene>
+        <!--Group List View Controller-->
+        <scene sceneID="JLe-Rv-BZP">
+            <objects>
+                <viewController storyboardIdentifier="firstAfterLogin" id="xJ2-Jy-k1b" customClass="GroupListViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ubJ-69-1UW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wKC-HN-GbP"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PaZ-ec-HZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3175" y="-225"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="TrX-7g-iui">
