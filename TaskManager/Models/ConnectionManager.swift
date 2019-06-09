@@ -70,7 +70,7 @@ public struct ConnectionManager {
         }.resume()
     }
     
-    func register(withEmail email: String, password: String, onSuccess: @escaping (Result<User, Error>) -> ()) {
+    func register(user: User, onSuccess: @escaping (Result<User, Error>) -> ()) {
         let session = URLSession.shared
         let registerURL: URL! = URL(string: "http://buzztaab.com:8081/api/register")
         
@@ -79,7 +79,7 @@ public struct ConnectionManager {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "post"
         
-        let parameters: JSONDictionary = ["email" : email, "password" : password]
+        let parameters: JSONDictionary = ["email" : user.email, "password" : user.password]
         let body = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         
         request.httpBody = body

@@ -10,13 +10,14 @@ import Foundation
 
 public struct User: Codable, CustomStringConvertible {
     public var description: String {
-        return "User with email: \(self.email!), password: \(self.password!)"
+        return "User with email: \(self.email), password: \(self.password)"
     }
+
+    var email: String
+    var password: String
     
     var firstName: String?
     var lastName: String?
-    var email: String?
-    var password: String?
     var phoneNumber: String?
     
     enum CodingKeys: String, CodingKey {
