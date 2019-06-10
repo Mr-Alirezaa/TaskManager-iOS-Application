@@ -11,11 +11,25 @@ import Foundation
 let date = Date()
 
 
-struct TMTaskGroup: Codable {
+struct TMTaskGroup: Codable, CustomStringConvertible {
+    var description: String {
+        return """
+        
+        --------------------------------------------
+        Task Group with id: \(self.id),
+                      name: \(self.name),
+                 createdAt: \(self.createdAt),
+                 updatedAt: \(self.updatedAt).
+        --------------------------------------------
+        
+        """
+
+    }
+    
     var id: Int
     var name: String
-    var createdAt: Date
-    var updatedAt: Date
+    var createdAt: String
+    var updatedAt: String
     
     enum CodingKeys: String, CodingKey {
         case id

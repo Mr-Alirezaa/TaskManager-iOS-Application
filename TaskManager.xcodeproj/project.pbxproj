@@ -23,6 +23,8 @@
 		C06B133E22A713F200FF86D4 /* TMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC56B229075CD00C06D80 /* TMTextField.swift */; };
 		C06B133F22A717A200FF86D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC5412290067500C06D80 /* Assets.xcassets */; };
 		C0C484B922AE3DA200B7C2A9 /* String+Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C484B822AE3DA200B7C2A9 /* String+Validations.swift */; };
+		C0C484BB22AE641200B7C2A9 /* TMGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C484BA22AE641200B7C2A9 /* TMGroupTableViewCell.swift */; };
+		C0C484BD22AE764F00B7C2A9 /* TMTaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C484BC22AE764F00B7C2A9 /* TMTaskGroup.swift */; };
 		C0DA274222A9179D003568EF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA274122A9179D003568EF /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		C0BFC569229060BC00C06D80 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C0BFC56B229075CD00C06D80 /* TMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTextField.swift; sourceTree = "<group>"; };
 		C0C484B822AE3DA200B7C2A9 /* String+Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validations.swift"; sourceTree = "<group>"; };
+		C0C484BA22AE641200B7C2A9 /* TMGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGroupTableViewCell.swift; sourceTree = "<group>"; };
+		C0C484BC22AE764F00B7C2A9 /* TMTaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTaskGroup.swift; sourceTree = "<group>"; };
 		C0DA274122A9179D003568EF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +83,7 @@
 			children = (
 				C08470C022915C3F00C65264 /* ConnectionManager.swift */,
 				C0DA274122A9179D003568EF /* User.swift */,
+				C0C484BC22AE764F00B7C2A9 /* TMTaskGroup.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			children = (
 				C0BFC54D22900BBA00C06D80 /* TMButton.swift */,
 				C0BFC56B229075CD00C06D80 /* TMTextField.swift */,
+				C0C484BA22AE641200B7C2A9 /* TMGroupTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,10 +258,12 @@
 				C0C484B922AE3DA200B7C2A9 /* String+Validations.swift in Sources */,
 				C06B133222A713C200FF86D4 /* OnboardingViewController.swift in Sources */,
 				C06B133D22A713F200FF86D4 /* TMButton.swift in Sources */,
+				C0C484BD22AE764F00B7C2A9 /* TMTaskGroup.swift in Sources */,
 				C06B133522A713C700FF86D4 /* AppDelegate.swift in Sources */,
 				C0DA274222A9179D003568EF /* User.swift in Sources */,
 				C06B133422A713C200FF86D4 /* RegisterViewController.swift in Sources */,
 				C06B133E22A713F200FF86D4 /* TMTextField.swift in Sources */,
+				C0C484BB22AE641200B7C2A9 /* TMGroupTableViewCell.swift in Sources */,
 				C06B133B22A713E400FF86D4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

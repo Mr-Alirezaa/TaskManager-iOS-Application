@@ -40,4 +40,9 @@ public struct User: Codable, CustomStringConvertible {
         case password
         case phoneNumber = "phone_number"
     }
+    
+    // FIXME: Remove this:
+    static var test: User {
+        return User(email: "fck@gmail.com", password: "123456", firstName: nil, lastName: nil, phoneNumber: nil, token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNzYwYWM4ZWQtMzhkMy00ZjUzLWE3YjItOWFkOWIzYmRhNjRhIiwiaWF0IjoxNTM5MjUwNTg2fQ.exeb-WXsM06aWMtInkQcaoK7hKJ9NGrUpQUsHkKBdIk")
+    }
 }

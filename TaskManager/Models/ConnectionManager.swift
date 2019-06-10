@@ -19,6 +19,8 @@ public struct ConnectionManager {
     private typealias JSONDictionary = [String : Any]
     
     
+    // MARK: - Login & Registration.
+    
     func login(username: String, password: String, onSuccess: @escaping (Result<User, Error>) -> ()) {
         let session = URLSession.shared
         
@@ -48,6 +50,7 @@ public struct ConnectionManager {
                 let header = response.allHeaderFields
                 if let headerToken = header["token"] {
                     token = headerToken as? String
+                    token = "Bearer " + (token ?? "")
                 }
             }
             
@@ -134,6 +137,175 @@ public struct ConnectionManager {
             }
         }.resume()
     }
+    
+    // MARK: - Manage Task Groups.
+    
+    func fetchTaskGroups(for user: User, onSuccess: @escaping (Result<[TMTaskGroup], Error>) -> ()) {
+        let session = URLSession.shared
+        
+        let getTaskURL = URL(string: "http://buzztaab.com:8081/api/getGroup/")!
+        
+        var request = URLRequest(url: getTaskURL)
+        request.timeoutInterval = 20
+        request.httpMethod = "post"
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue(UserDefaults.standard.string(forKey: TMUserDefualtsKeys.apiToken)!, forHTTPHeaderField: "authorization")
+        let test = user.token!
+        request.addValue(test, forHTTPHeaderField: "authorization")
+        
+        session.dataTask(with: request) { (data, urlResponse, error) in
+            if let error = error {
+                onSuccess(.failure(error))
+                return
+            }
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! JSONDictionary
+                    
+                    if json["code"] as! Int == 200 {
+                        let body = json["body"] as! [Any]
+                        var taskGroups = [TMTaskGroup]()
+                        let decoder = JSONDecoder()
+
+                        for item in body {
+                            let newJson = try! JSONSerialization.data(withJSONObject: item, options: .prettyPrinted)
+                            let taskGroup = try? decoder.decode(TMTaskGroup.self, from: newJson)
+                            if let taskGroup = taskGroup {
+                                taskGroups += [taskGroup]
+                            }
+                        }
+                        onSuccess(.success(taskGroups))
+                    }
+                    
+                } catch let parseError {
+                    print(parseError)
+                }
+            }
+            
+        }.resume()
+    }
+    
+    func deleteTaskGroup(taskGroup: TMTaskGroup, onSuccess: @escaping (Result<TMTaskGroup, Error>) -> ()) {
+        let session = URLSession.shared
+        
+        let destinationURL = URL(string: "http://buzztaab.com:8081/api/deleteGroup/")!
+        
+        var request = URLRequest(url: destinationURL)
+        request.timeoutInterval = 20
+        request.httpMethod = "post"
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(UserDefaults.standard.string(forKey: TMUserDefualtsKeys.apiToken)!, forHTTPHeaderField: "authorization")
+        
+        let body: JSONDictionary = ["group_id" : taskGroup.id]
+        let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        request.httpBody = jsonBody
+        
+        session.dataTask(with: request) { (data, urlResponse, error) in
+            if let error = error {
+                onSuccess(.failure(error))
+                return
+            }
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! JSONDictionary
+                    if json["code"] as! Int == 200 {
+                        onSuccess(.success(taskGroup))
+                    } else {
+                        onSuccess(.failure(TMError.DeleteTaskGroup.somethingWentWrong))
+                    }
+                } catch let parseError {
+                    onSuccess(.failure(parseError))
+                    return
+                }
+            }
+            
+        }.resume()
+
+    }
+    
+    func editTaskGroupName(taskGroup: TMTaskGroup, to name: String, onSuccess: @escaping (Result<TMTaskGroup, Error>) -> ()) {
+        let session = URLSession.shared
+        
+        let destinationURL = URL(string: "http://buzztaab.com:8081/api/deleteGroup/")!
+        
+        var request = URLRequest(url: destinationURL)
+        request.timeoutInterval = 20
+        request.httpMethod = "post"
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(UserDefaults.standard.string(forKey: TMUserDefualtsKeys.apiToken)!, forHTTPHeaderField: "authorization")
+        
+        let body: JSONDictionary = ["group_id" : taskGroup.id, "groupName" : name]
+        let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        request.httpBody = jsonBody
+        
+        session.dataTask(with: request) { (data, urlResponse, error) in
+            if let error = error {
+                onSuccess(.failure(error))
+                return
+            }
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! JSONDictionary
+                    let code = json["code"] as? Int
+                    
+                    if code == 200 {
+                        
+                    } else {
+                        
+                    }
+                } catch let parseError {
+                    onSuccess(.failure(parseError))
+                    return
+                }
+            }
+            
+        }
+    }
+    
+    func createTaskGroup(taskGroup: TMTaskGroup, onSuccess: @escaping (Result<TMTaskGroup, Error>) -> ()) {
+        let session = URLSession.shared
+        
+        let destinationURL = URL(string: "http://buzztaab.com:8081/api/deleteGroup/")!
+        
+        var request = URLRequest(url: destinationURL)
+        request.timeoutInterval = 20
+        request.httpMethod = "post"
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(UserDefaults.standard.string(forKey: TMUserDefualtsKeys.apiToken)!, forHTTPHeaderField: "authorization")
+        
+        let body: JSONDictionary = ["group_id" : taskGroup.id, "groupName" : taskGroup.name]
+        let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        request.httpBody = jsonBody
+        
+        session.dataTask(with: request) { (data, urlResponse, error) in
+            if let error = error {
+                onSuccess(.failure(error))
+                return
+            }
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! JSONDictionary
+                    let code = json["code"] as? Int
+                    
+                    if code == 200 {
+                        
+                    } else {
+                        
+                    }
+                } catch let parseError {
+                    onSuccess(.failure(parseError))
+                    return
+                }
+            }
+            
+        }
+    }
+    
+    // MARK: - Manage Tasks
 }
 
 enum TMError: LocalizedError {
@@ -146,6 +318,10 @@ enum TMError: LocalizedError {
     
     enum SignInError: LocalizedError {
         case userNotFound
+    }
+    
+    enum DeleteTaskGroup: LocalizedError {
+        case somethingWentWrong
     }
 }
 
