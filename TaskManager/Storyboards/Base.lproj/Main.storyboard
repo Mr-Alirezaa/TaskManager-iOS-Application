@@ -115,7 +115,7 @@
         <!--Login View Controller-->
         <scene sceneID="bOc-4l-vtj">
             <objects>
-                <viewController id="GVX-q7-PM3" customClass="LoginViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="GVX-q7-PM3" customClass="LoginViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1h3-f4-FdS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +164,7 @@
                                             <constraint firstAttribute="height" constant="80" id="QAI-H8-tKm"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZ9-pN-hFo" customClass="TMButton" customModule="TaskManager" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZ9-pN-hFo" customClass="TMButton" customModule="TaskManager" customModuleProvider="target">
                                         <rect key="frame" x="40" y="268.33333333333331" width="255" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="OZF-C9-c6X"/>
@@ -180,7 +180,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9A-w9-rCe">
                                         <rect key="frame" x="109.66666666666666" y="313.33333333333331" width="116" height="18"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="116" id="8Vh-jt-Wah"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="116" id="8Vh-jt-Wah"/>
                                             <constraint firstAttribute="height" constant="18" id="H9U-s1-n3X"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Shabnam-Bold" family="Shabnam" pointSize="10"/>
@@ -272,7 +272,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8t-fh-O9j">
-                                <rect key="frame" x="20" y="117.99999999999997" width="335" height="361.33333333333326"/>
+                                <rect key="frame" x="20" y="117.99999999999997" width="335" height="441.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ایجاد حساب کاربری" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oai-S7-IjS">
                                         <rect key="frame" x="20" y="50" width="295" height="37"/>
@@ -287,38 +287,56 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="k2H-Az-qQC">
-                                        <rect key="frame" x="40" y="158.33333333333331" width="255" height="120"/>
+                                        <rect key="frame" x="40" y="158.33333333333331" width="255" height="200"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ایمیل" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgg-es-NdP" customClass="TMTextField" customModule="TaskManager" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="نام" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wB5-cS-DUd" customClass="TMTextField" customModule="TaskManager" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="255" height="40"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="username"/>
+                                                <textInputTraits key="textInputTraits" textContentType="name"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="_textFieldStyle" value="first"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="رمز عبور" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="23M-uy-ZEg" customClass="TMTextField" customModule="TaskManager" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="نام خانوادگی" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nsp-kK-4tz" customClass="TMTextField" customModule="TaskManager" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="40" width="255" height="40"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" textContentType="family-name"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="_textFieldStyle" value="middle"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ایمیل" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgg-es-NdP" customClass="TMTextField" customModule="TaskManager" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="80" width="255" height="40"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="_textFieldStyle" value="mid"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="رمز عبور" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="23M-uy-ZEg" customClass="TMTextField" customModule="TaskManager" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="120" width="255" height="40"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="_textFieldStyle" value="middle"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="تکرار رمز عبور" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s3W-Mx-hPx" customClass="TMTextField" customModule="TaskManager" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="80" width="255" height="40"/>
+                                                <rect key="frame" x="0.0" y="160" width="255" height="40"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="_textFieldStyle" value="last"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="keo-ZC-FCf"/>
+                                            <constraint firstAttribute="height" constant="200" id="keo-ZC-FCf"/>
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlY-a9-GMZ">
@@ -333,8 +351,8 @@
                                             <action selector="backButton:" destination="GVX-q7-PM3" eventType="touchUpInside" id="fw9-0O-O3O"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cts-Ku-dMz" customClass="TMButton" customModule="TaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="288.33333333333331" width="255" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cts-Ku-dMz" customClass="TMButton" customModule="TaskManager" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="368.33333333333331" width="255" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="rTR-eh-2ec"/>
                                         </constraints>
@@ -342,12 +360,15 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="_styleName" value="fill"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="registerButtonTapped:" destination="AZy-jP-CuA" eventType="touchUpInside" id="dJH-I7-IP1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBa-WB-4Yl">
-                                        <rect key="frame" x="88.666666666666686" y="333.33333333333331" width="158" height="18"/>
+                                        <rect key="frame" x="88.666666666666686" y="413.33333333333337" width="158" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="Duc-qb-OZV"/>
-                                            <constraint firstAttribute="width" constant="158" id="JUl-x5-Y6m"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="158" id="JUl-x5-Y6m"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Shabnam-Bold" family="Shabnam" pointSize="10"/>
                                         <state key="normal" title="حساب کاربری دارم، میخواهم وارد شوم.">
@@ -389,6 +410,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HeM-IB-a0Z"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="bgg-es-NdP" id="ECz-N9-1ab"/>
+                        <outlet property="familyNameTextField" destination="Nsp-kK-4tz" id="WFQ-Gt-1oO"/>
+                        <outlet property="nameTextField" destination="wB5-cS-DUd" id="HEh-xY-iVG"/>
+                        <outlet property="passwordRepeatTextField" destination="s3W-Mx-hPx" id="Ex0-L6-TR1"/>
+                        <outlet property="passwordTextField" destination="23M-uy-ZEg" id="dOn-gB-Avt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4lK-cd-GBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

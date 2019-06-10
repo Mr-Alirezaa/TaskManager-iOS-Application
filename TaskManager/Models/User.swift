@@ -10,7 +10,18 @@ import Foundation
 
 public struct User: Codable, CustomStringConvertible {
     public var description: String {
-        return "User with email: \(self.email), password: \(self.password)"
+        return """
+        
+        --------------------------------------------
+        User with email: \(self.email),
+               password: \(self.password),
+              firstName: \(self.firstName ?? "-"),
+               lastName: \(self.lastName ?? "-"),
+            phoneNumber: \(self.phoneNumber ?? "-"),
+                  token: \(self.token ?? "-").
+        --------------------------------------------
+        
+        """
     }
 
     var email: String
@@ -19,6 +30,8 @@ public struct User: Codable, CustomStringConvertible {
     var firstName: String?
     var lastName: String?
     var phoneNumber: String?
+    
+    var token: String?
     
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"

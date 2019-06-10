@@ -27,3 +27,8 @@ struct TMColors {
 struct TMConstants {
     static let cornerRadius: CGFloat = 6
 }
+
+struct TMUserDefualtsKeys {
+    static let apiToken = "api-token"
+    static let lastLoginEmail = "last-login-email"
+}

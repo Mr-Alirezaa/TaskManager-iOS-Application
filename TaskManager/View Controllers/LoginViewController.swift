@@ -12,12 +12,21 @@ class LoginViewController: UIViewController {
     
     private let connectionManager = ConnectionManager.default
     
+    var initialEmail: String?
+    
     @IBOutlet weak var emailTextField: TMTextField!
     @IBOutlet weak var passwordTextField: TMTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        
+        if let initialEmail = initialEmail {
+            emailTextField.text = initialEmail
+        } else {
+            let initialEmail = UserDefaults.standard.string(forKey: TMUserDefualtsKeys.lastLoginEmail)
+            emailTextField.text = initialEmail
+        }
     }
     
     @IBAction func backButton(_ sender: UIButton) {
@@ -26,23 +35,54 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonTap(_ sender: UIButton) {
-        print("textField: --- email: \(emailTextField.text!), pass: \(passwordTextField.text!)")
-//        var resultUser: User?
-        connectionManager.login(username: emailTextField.text!, password: passwordTextField.text!) { [weak self] (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .failure(let err):
-                    print(err)
-                case .success(let user):
-                    print(user)
-                    let nextViewController = self?.storyboard?.instantiateViewController(withIdentifier: "firstAfterLogin")
-                    self?.navigationController?.pushViewController(nextViewController!, animated: true)
+        if emailTextField.hasText && passwordTextField.hasText {
+            if !emailTextField.text!.isValidEmail {
+                let alert = UIAlertController(title: "خطا در ورود", message: "لطفا یک ایمیل معتبر وارد کنید.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "متوجه شدم", style: .default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            connectionManager.login(username: emailTextField.text!, password: passwordTextField.text!) { [weak self] (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let err):
+                        switch err {
+                            case TMError.SignInError.userNotFound:
+                                let alert = UIAlertController(title: "خطا در ورود", message: "ایمیل یا رمز عبور اشتباه است.", preferredStyle: .alert)
+                                let okAction = UIAlertAction(title: "متوجه شدم", style: .default) { (ـ) in
+                                    self?.passwordTextField.text = ""
+                                }
+                                alert.addAction(okAction)
+                                self?.present(alert, animated: true, completion: nil)
+                                return
+                            default:
+                                let alert = UIAlertController(title: "خطا در ورود", message: "هنگام ورود مشکلی پیش آمده است. لطفا مجددا تلاش کنید.", preferredStyle: .alert)
+                                let okAction = UIAlertAction(title: "متوجه شدم", style: .default) { (ـ) in
+                                    self?.passwordTextField.text = ""
+                                }
+                                alert.addAction(okAction)
+                                self?.present(alert, animated: true, completion: nil)
+                                return
+                        }
+                    case .success(let user):
+                        DispatchQueue.main.async {
+                            let userDefaults = UserDefaults.standard
+                            userDefaults.set(user.token, forKey: TMUserDefualtsKeys.apiToken)
+                            userDefaults.set(user.email, forKey: TMUserDefualtsKeys.lastLoginEmail)
+                        }
+                        let nextViewController = self?.storyboard?.instantiateViewController(withIdentifier: "firstAfterLogin")
+                        self?.navigationController?.pushViewController(nextViewController!, animated: true)
+                    }
                 }
             }
+        } else {
+            let alert = UIAlertController(title: "خطا در ورود", message: "تکمیل همه فیلد های ورود الزامی است.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "متوجه شدم", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+            return
         }
-//        print("Before return")
-//        if resultUser != nil { return true }
-//        return false
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

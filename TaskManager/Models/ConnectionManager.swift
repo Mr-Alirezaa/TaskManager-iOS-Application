@@ -39,27 +39,36 @@ public struct ConnectionManager {
                 onSuccess(.failure(error))
                 return
             }
+            
             var user: User?
+            var token: String?
             var apiError: Error?
+            
+            if let response = urlResponse as? HTTPURLResponse {
+                let header = response.allHeaderFields
+                if let headerToken = header["token"] {
+                    token = headerToken as? String
+                }
+            }
+            
             if let data = data {
                 do {
                     let jsonObject = try (JSONSerialization.jsonObject(with: data, options: .allowFragments) as! JSONDictionary)
-                    print("Initial Serialization.")
-                    print("Code is: \(jsonObject["code"] as! Int)")
                     if jsonObject["code"] as! Int == 200 {
                         let body = (jsonObject["body"] as! JSONDictionary)
                         let newJson = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+                        
                         let decoder = JSONDecoder()
-                        decoder.keyDecodingStrategy = .convertFromSnakeCase
-                        
                         user = try? decoder.decode(User.self, from: newJson!)
-                        print("user in dataTask:\(user!)")
                         
-                        if let user = user {
+                        if var user = user {
+                            if let token = token {
+                                user.token = token
+                            }
                             onSuccess(.success(user))
                         }
                     } else if jsonObject["code"] as! Int == -1 {
-                        apiError = TMError.notFound
+                        apiError = TMError.SignInError.userNotFound
                         onSuccess(.failure(apiError!))
                     }
                 } catch let err {
@@ -79,8 +88,9 @@ public struct ConnectionManager {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "post"
         
-        let parameters: JSONDictionary = ["email" : user.email, "password" : user.password]
-        let body = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        let body = try? encoder.encode(user)
         
         request.httpBody = body
         
@@ -102,7 +112,7 @@ public struct ConnectionManager {
                         
                         let newJson = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
                         let decoder = JSONDecoder()
-                        decoder.keyDecodingStrategy = .convertFromSnakeCase
+
                         if let json = newJson {
                             let user = try? decoder.decode(User.self, from: json)
                             
@@ -122,7 +132,7 @@ public struct ConnectionManager {
                     return
                 }
             }
-        }
+        }.resume()
     }
 }
 
