@@ -68,7 +68,7 @@ class LoginViewController: UIViewController {
                     case .success(let user):
                         DispatchQueue.main.async {
                             let userDefaults = UserDefaults.standard
-                            userDefaults.set(user.token, forKey: TMUserDefualtsKeys.apiToken)
+                            userDefaults.set(user.token!, forKey: TMUserDefualtsKeys.apiToken)
                             userDefaults.set(user.email, forKey: TMUserDefualtsKeys.lastLoginEmail)
                         }
                         let nextViewController = self?.storyboard?.instantiateViewController(withIdentifier: "firstAfterLogin")
