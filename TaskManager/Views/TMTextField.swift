@@ -52,7 +52,7 @@ class TMTextField: UITextField {
     // MARK: - Interface builder prepration
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-        setupTextField()
+//        setupTextField()
     }
     
     // MARK: - Placeholder and textfield text paddings
