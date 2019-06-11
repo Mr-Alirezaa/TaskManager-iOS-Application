@@ -17,12 +17,13 @@ class TMTextField: UITextField {
         case first
         case last
         case middle
+        case only
     }
     
     var textFieldStyle: TMTextFieldStyle?
     
     @IBInspectable
-    private var _textFieldStyle: String = "middle" {
+    private var _textFieldStyle: String = "only" {
         didSet {
             textFieldStyle = TMTextFieldStyle(rawValue: _textFieldStyle)
         }
@@ -82,8 +83,10 @@ class TMTextField: UITextField {
                     roundingCorners = [.topLeft, .topRight]
                 case .last:
                     roundingCorners = [.bottomLeft, .bottomRight]
-                default:
+                case .middle:
                     roundingCorners = []
+                case .only:
+                    roundingCorners = [.allCorners]
             }
         }
         let rectanglePath = UIBezierPath(roundedRect: rect, byRoundingCorners: roundingCorners, cornerRadii: CGSize(width: TMConstants.cornerRadius, height: TMConstants.cornerRadius))
