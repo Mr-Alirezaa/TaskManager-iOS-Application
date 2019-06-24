@@ -317,7 +317,7 @@
         <!--Title-->
         <scene sceneID="Laq-Vq-ihz">
             <objects>
-                <viewController id="JzG-mF-cmG" customClass="TaskDetailsViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JzG-mF-cmG" customClass="TaskListViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tIV-3v-zD8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -330,7 +330,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BqZ-Te-rHE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BqZ-Te-rHE" customClass="TaskListTableViewCell" customModule="TaskManager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.333332061767578" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BqZ-Te-rHE" id="BEP-12-xZN">
@@ -344,6 +344,9 @@
                                                         <constraint firstAttribute="height" constant="30" id="dP9-4Z-H8Q"/>
                                                     </constraints>
                                                     <state key="normal" image="circle"/>
+                                                    <connections>
+                                                        <action selector="checkButtonTapped:" destination="BqZ-Te-rHE" eventType="touchUpInside" id="5WE-xT-JOs"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نام گروه" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maN-fg-ub8">
                                                     <rect key="frame" x="242" y="11.666666666666664" width="53" height="21"/>
@@ -360,8 +363,16 @@
                                                 <constraint firstItem="ha0-JD-4KN" firstAttribute="leading" secondItem="BEP-12-xZN" secondAttribute="leading" constant="10" id="sNX-dq-VGf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkButton" destination="ha0-JD-4KN" id="o38-oG-cmA"/>
+                                            <outlet property="taskTitleLabel" destination="maN-fg-ub8" id="R0q-HB-CEk"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JzG-mF-cmG" id="Wvt-yc-qwB"/>
+                                    <outlet property="delegate" destination="JzG-mF-cmG" id="WHO-of-hKB"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
