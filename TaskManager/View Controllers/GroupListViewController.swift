@@ -18,10 +18,17 @@ class GroupListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @objc func addTaskGroupButtonTapped(sender: UIButton!) {
-        print("button tapped.")
+        let groupNameViewController = self.storyboard?.instantiateViewController(withIdentifier: "group-name-view-controller") as! GroupNameViewController
+        groupNameViewController.isEditingMode = false
+
+        self.navigationController?.pushViewController(groupNameViewController, animated: true)
     }
     
-    private func fetchTaskGroups() {
+    @objc func fetchTaskGroups(_ sender: Any) {
+        fetchTaskGroups()
+    }
+    
+    func fetchTaskGroups() {
         connectionManager.fetchTaskGroups(for: User.test) { (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -31,6 +38,7 @@ class GroupListViewController: UIViewController {
                 case .failure(let error):
                     print(error)
                 }
+                self.tableView.refreshControl?.endRefreshing()
             }
         }
 
@@ -41,6 +49,26 @@ class GroupListViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         fetchTaskGroups()
+
+        let refreshView = UIRefreshControl()
+        refreshView.addTarget(self, action: #selector(fetchTaskGroups(_:)), for: .valueChanged)
+        tableView.refreshControl = refreshView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+        fetchTaskGroups()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "cell-tap" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                segue.destination.title = taskGroups[indexPath.row].name
+            }
+            if #available(iOS 11.0, *) {
+                segue.destination.navigationItem.largeTitleDisplayMode = .never
+            }
+        }
     }
 }
 
@@ -95,20 +123,20 @@ extension GroupListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         if indexPath.section == 0 {
             return .none
         }
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] (contextualAction, view, completrionHandler) in
-            let deletedTaskGroup = self?.taskGroups.remove(at: indexPath.row)
-            self?.tableView.deleteRows(at: [indexPath], with: .automatic)
-            
+            let taskToDelete = self?.taskGroups[indexPath.row]
             DispatchQueue.global(qos: .background).async {
-                self?.connectionManager.deleteTaskGroup(taskGroup: deletedTaskGroup!) { (result) in
+                self?.connectionManager.deleteTaskGroup(taskGroup: taskToDelete!) { (result) in
                     DispatchQueue.main.async {
                         switch result {
                         case .success(_):
                             completrionHandler(true)
+                            self?.taskGroups.remove(at: indexPath.row)
+                            self?.tableView.deleteRows(at: [indexPath], with: .automatic)
                         case .failure(_):
                             completrionHandler(false)
                         }
@@ -119,7 +147,11 @@ extension GroupListViewController: UITableViewDelegate, UITableViewDataSource {
         deleteAction.image = UIImage(named: "trash")
         
         let editAction = UIContextualAction(style: .normal, title: nil) { (contextualAction, view, completrionHandler) in
-
+            let groupNameViewController = self.storyboard?.instantiateViewController(withIdentifier: "group-name-view-controller") as! GroupNameViewController
+            groupNameViewController.taskGroup = self.taskGroups[indexPath.row]
+            groupNameViewController.isEditingMode = true
+            
+            self.navigationController?.pushViewController(groupNameViewController, animated: true)
         }
         editAction.image = UIImage(named: "edit")
         
