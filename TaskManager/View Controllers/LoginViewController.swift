@@ -30,7 +30,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func backButton(_ sender: UIButton) {
-        print("----> back button tapped")
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -66,11 +65,10 @@ class LoginViewController: UIViewController {
                                 return
                         }
                     case .success(let user):
-                        DispatchQueue.main.async {
-                            let userDefaults = UserDefaults.standard
-                            userDefaults.set(user.token!, forKey: TMUserDefualtsKeys.apiToken)
-                            userDefaults.set(user.email, forKey: TMUserDefualtsKeys.lastLoginEmail)
-                        }
+                        let userDefaults = UserDefaults.standard
+                        userDefaults.set(User.test.token!, forKey: TMUserDefualtsKeys.apiToken)
+                        userDefaults.set(user.email, forKey: TMUserDefualtsKeys.lastLoginEmail)
+                        
                         let nextViewController = self?.storyboard?.instantiateViewController(withIdentifier: "firstAfterLogin")
                         self?.navigationController?.pushViewController(nextViewController!, animated: true)
                     }

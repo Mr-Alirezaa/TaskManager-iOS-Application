@@ -11,9 +11,33 @@ import Foundation
 public struct ConnectionManager {
     
     public static let `default` = ConnectionManager()
-    
+
+    private let session: URLSession!
+    private let decoder: JSONDecoder!
+
     private init() {
-        
+        session = .shared
+        decoder = JSONDecoder()
+    }
+
+    private func defaultURLRequest(url: String, requiresToken: Bool = true)  -> URLRequest? {
+        if let generatedURL = URL(string: url) {
+            return defaultURLRequest(url: generatedURL, requiresToken: requiresToken)
+        }
+        return nil
+    }
+
+    private func defaultURLRequest(url: URL, requiresToken: Bool = true) -> URLRequest {
+
+        var request = URLRequest(url: url)
+        request.timeoutInterval = 10
+        request.httpMethod = "post"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        if requiresToken {
+            request.addValue(UserDefaults.standard.string(forKey: TMUserDefualtsKeys.apiToken)!, forHTTPHeaderField: "authorization")
+        }
+
+        return request
     }
     
     private typealias JSONDictionary = [String : Any]
@@ -75,7 +99,6 @@ public struct ConnectionManager {
                         onSuccess(.failure(apiError!))
                     }
                 } catch let err {
-                    print("error in serialization: \(err.localizedDescription)")
                     onSuccess(.failure(err))
                 }
             }
@@ -177,7 +200,7 @@ public struct ConnectionManager {
                     }
                     
                 } catch let parseError {
-                    print(parseError)
+                    onSuccess(.failure(parseError))
                 }
             }
             
@@ -322,10 +345,50 @@ public struct ConnectionManager {
     }
     
     // MARK: - Manage Tasks
+
+    func fetchTasks(for group: TMTaskGroup, onSuccess: @escaping (Result<[TMTask], Error>) -> ()) {
+        let url = URL(string: "http://buzztaab.com:8081/api/getTask/")
+        var request = defaultURLRequest(url: url!)
+
+        let body: JSONDictionary = ["group_id" : group.id]
+        request.httpBody = try! JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+
+        session.dataTask(with: request) { (data, urlResponse, error) in
+            if let error = error {
+                onSuccess(.failure(error))
+                return
+            }
+            if let data = data {
+                let json = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! JSONDictionary
+                if json["code"] as! Int == 200 {
+                    if let body = json["body"] as? [Any] {
+                        var tasks = [TMTask]()
+
+                        for item in body {
+                            let newJson = try! JSONSerialization.data(withJSONObject: item, options: .prettyPrinted)
+                            let task = try? self.decoder.decode(TMTask.self, from: newJson)
+                            if let task = task {
+                                tasks += [task]
+                            }
+                        }
+                        onSuccess(.success(tasks))
+                        return
+                    }
+                } else {
+                    onSuccess(.failure(TMError.FetchTasksError.taskNotFound))
+                    return
+                }
+            } else {
+                onSuccess(.failure(TMError.somethingWentWrong))
+                return
+            }
+        }.resume()
+    }
 }
 
 enum TMError: LocalizedError {
     case notFound
+    case somethingWentWrong
     
     enum SignUpError: LocalizedError {
         case userAlreadyRegistered
@@ -346,6 +409,10 @@ enum TMError: LocalizedError {
     
     enum CreateTaskGroupError: LocalizedError {
         case somethingWentWrong
+    }
+
+    enum FetchTasksError: LocalizedError {
+        case taskNotFound
     }
 }
 

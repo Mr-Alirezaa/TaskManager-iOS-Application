@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02E70E722B14D670058BCA7 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E70E622B14D670058BCA7 /* TaskDetailsViewController.swift */; };
 		C052938D22AD26F300281EDB /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C052938C22AD26F300281EDB /* GroupListViewController.swift */; };
 		C06B133122A7138600FF86D4 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08470C022915C3F00C65264 /* ConnectionManager.swift */; };
 		C06B133222A713C200FF86D4 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC53C2290067400C06D80 /* OnboardingViewController.swift */; };
@@ -23,17 +24,25 @@
 		C06B133E22A713F200FF86D4 /* TMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC56B229075CD00C06D80 /* TMTextField.swift */; };
 		C06B133F22A717A200FF86D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC5412290067500C06D80 /* Assets.xcassets */; };
 		C0B0301222AFDFED00DBE765 /* GroupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0301122AFDFED00DBE765 /* GroupNameViewController.swift */; };
+		C0B394ED22C1022300EAE13D /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B394EC22C1022300EAE13D /* TaskListViewController.swift */; };
+		C0B394EF22C1041800EAE13D /* TaskListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B394EE22C1041800EAE13D /* TaskListTableViewCell.swift */; };
+		C0B394F122C106D600EAE13D /* TMTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B394F022C106D600EAE13D /* TMTask.swift */; };
 		C0C484B922AE3DA200B7C2A9 /* String+Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C484B822AE3DA200B7C2A9 /* String+Validations.swift */; };
 		C0C484BB22AE641200B7C2A9 /* TMGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C484BA22AE641200B7C2A9 /* TMGroupTableViewCell.swift */; };
 		C0C484BD22AE764F00B7C2A9 /* TMTaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C484BC22AE764F00B7C2A9 /* TMTaskGroup.swift */; };
 		C0DA274222A9179D003568EF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA274122A9179D003568EF /* User.swift */; };
+		C0E613DB22B7E58800EC80C0 /* TMNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E613DA22B7E58800EC80C0 /* TMNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C02E70E622B14D670058BCA7 /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
 		C052938C22AD26F300281EDB /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		C06B131F22A7117500FF86D4 /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08470C022915C3F00C65264 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		C0B0301122AFDFED00DBE765 /* GroupNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupNameViewController.swift; sourceTree = "<group>"; };
+		C0B394EC22C1022300EAE13D /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		C0B394EE22C1041800EAE13D /* TaskListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewCell.swift; sourceTree = "<group>"; };
+		C0B394F022C106D600EAE13D /* TMTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTask.swift; sourceTree = "<group>"; };
 		C0BFC53A2290067400C06D80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0BFC53C2290067400C06D80 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		C0BFC53F2290067400C06D80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,6 +61,7 @@
 		C0C484BA22AE641200B7C2A9 /* TMGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGroupTableViewCell.swift; sourceTree = "<group>"; };
 		C0C484BC22AE764F00B7C2A9 /* TMTaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTaskGroup.swift; sourceTree = "<group>"; };
 		C0DA274122A9179D003568EF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C0E613DA22B7E58800EC80C0 /* TMNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,7 @@
 				C08470C022915C3F00C65264 /* ConnectionManager.swift */,
 				C0DA274122A9179D003568EF /* User.swift */,
 				C0C484BC22AE764F00B7C2A9 /* TMTaskGroup.swift */,
+				C0B394F022C106D600EAE13D /* TMTask.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,6 +146,8 @@
 				C0BFC569229060BC00C06D80 /* RegisterViewController.swift */,
 				C052938C22AD26F300281EDB /* GroupListViewController.swift */,
 				C0B0301122AFDFED00DBE765 /* GroupNameViewController.swift */,
+				C02E70E622B14D670058BCA7 /* TaskDetailsViewController.swift */,
+				C0B394EC22C1022300EAE13D /* TaskListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -153,6 +166,8 @@
 				C0BFC54D22900BBA00C06D80 /* TMButton.swift */,
 				C0BFC56B229075CD00C06D80 /* TMTextField.swift */,
 				C0C484BA22AE641200B7C2A9 /* TMGroupTableViewCell.swift */,
+				C0E613DA22B7E58800EC80C0 /* TMNavigationBar.swift */,
+				C0B394EE22C1041800EAE13D /* TaskListTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,17 +272,22 @@
 			files = (
 				C06B133322A713C200FF86D4 /* LoginViewController.swift in Sources */,
 				C06B133122A7138600FF86D4 /* ConnectionManager.swift in Sources */,
+				C0B394EF22C1041800EAE13D /* TaskListTableViewCell.swift in Sources */,
 				C052938D22AD26F300281EDB /* GroupListViewController.swift in Sources */,
 				C0C484B922AE3DA200B7C2A9 /* String+Validations.swift in Sources */,
+				C0B394F122C106D600EAE13D /* TMTask.swift in Sources */,
 				C06B133222A713C200FF86D4 /* OnboardingViewController.swift in Sources */,
 				C06B133D22A713F200FF86D4 /* TMButton.swift in Sources */,
+				C0E613DB22B7E58800EC80C0 /* TMNavigationBar.swift in Sources */,
 				C0C484BD22AE764F00B7C2A9 /* TMTaskGroup.swift in Sources */,
 				C06B133522A713C700FF86D4 /* AppDelegate.swift in Sources */,
 				C0DA274222A9179D003568EF /* User.swift in Sources */,
 				C06B133422A713C200FF86D4 /* RegisterViewController.swift in Sources */,
+				C02E70E722B14D670058BCA7 /* TaskDetailsViewController.swift in Sources */,
 				C06B133E22A713F200FF86D4 /* TMTextField.swift in Sources */,
 				C0C484BB22AE641200B7C2A9 /* TMGroupTableViewCell.swift in Sources */,
 				C06B133B22A713E400FF86D4 /* Constants.swift in Sources */,
+				C0B394ED22C1022300EAE13D /* TaskListViewController.swift in Sources */,
 				C0B0301222AFDFED00DBE765 /* GroupNameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

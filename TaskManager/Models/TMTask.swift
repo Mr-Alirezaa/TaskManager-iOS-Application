@@ -22,7 +22,7 @@ struct TMTask {
 
 extension TMTask: CustomStringConvertible {
     var description: String {
-         return """
+        return """
 
         --------------------------------------------
         Task with id: \(self.id),
@@ -41,7 +41,7 @@ extension TMTask: CustomStringConvertible {
 }
 
 extension TMTask: Codable {
-    enum codingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case id
         case taskName
         case dueDate = "executionTime"

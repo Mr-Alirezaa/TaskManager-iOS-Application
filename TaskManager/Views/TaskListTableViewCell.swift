@@ -24,8 +24,18 @@ class TaskListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    @IBAction func checkButtonTapped(_ sender: UIButton) {
+    private func toggleCheck() {
+        if checkButton.currentImage == UIImage(named: "circle") {
+            checkButton.setImage(UIImage(named: "check-circle"), for: .normal)
+            self.contentView.backgroundColor = .red
+        } else {
+            checkButton.setImage(UIImage(named: "circle"), for: .normal)
+            self.contentView.backgroundColor = TMColors.lightBlue
+        }
+    }
 
+    @IBAction func checkButtonTapped(_ sender: UIButton) {
+        toggleCheck()
 
     }
 }

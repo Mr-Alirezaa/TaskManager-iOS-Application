@@ -8,9 +8,6 @@
 
 import Foundation
 
-let date = Date()
-
-
 struct TMTaskGroup: Codable, CustomStringConvertible {
     var description: String {
         return """

@@ -46,8 +46,7 @@ class GroupListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+
         fetchTaskGroups()
 
         let refreshView = UIRefreshControl()
@@ -79,6 +78,12 @@ extension GroupListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        let taskListViewController = self.storyboard?.instantiateViewController(withIdentifier: "task-list-viewcontroller") as! TaskListViewController
+
+        taskListViewController.taskGroup = taskGroups[indexPath.row]
+
+        self.navigationController?.pushViewController(taskListViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
