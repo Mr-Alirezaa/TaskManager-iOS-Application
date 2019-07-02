@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ConnectionManager {
+public class ConnectionManager {
     
     public static let `default` = ConnectionManager()
 

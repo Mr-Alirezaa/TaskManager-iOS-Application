@@ -14,6 +14,7 @@ class TaskListViewController: UIViewController {
 
     var taskGroup: TMTaskGroup!
     var tasks = [TMTask]()
+    var dataSource = TMTasksDataSource()
 
     @IBOutlet weak var tableView: UITableView!
 

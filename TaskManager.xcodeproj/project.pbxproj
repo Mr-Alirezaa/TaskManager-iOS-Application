@@ -23,6 +23,8 @@
 		C06B133D22A713F200FF86D4 /* TMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC54D22900BBA00C06D80 /* TMButton.swift */; };
 		C06B133E22A713F200FF86D4 /* TMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC56B229075CD00C06D80 /* TMTextField.swift */; };
 		C06B133F22A717A200FF86D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC5412290067500C06D80 /* Assets.xcassets */; };
+		C086ACF022C2AFCA004256EA /* TMTasksDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086ACEF22C2AFCA004256EA /* TMTasksDataSource.swift */; };
+		C086ACF422C2B82A004256EA /* TMTasksDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086ACF322C2B82A004256EA /* TMTasksDelegate.swift */; };
 		C0B0301222AFDFED00DBE765 /* GroupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0301122AFDFED00DBE765 /* GroupNameViewController.swift */; };
 		C0B394ED22C1022300EAE13D /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B394EC22C1022300EAE13D /* TaskListViewController.swift */; };
 		C0B394EF22C1041800EAE13D /* TaskListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B394EE22C1041800EAE13D /* TaskListTableViewCell.swift */; };
@@ -39,6 +41,8 @@
 		C052938C22AD26F300281EDB /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		C06B131F22A7117500FF86D4 /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08470C022915C3F00C65264 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		C086ACEF22C2AFCA004256EA /* TMTasksDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTasksDataSource.swift; sourceTree = "<group>"; };
+		C086ACF322C2B82A004256EA /* TMTasksDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTasksDelegate.swift; sourceTree = "<group>"; };
 		C0B0301122AFDFED00DBE765 /* GroupNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupNameViewController.swift; sourceTree = "<group>"; };
 		C0B394EC22C1022300EAE13D /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		C0B394EE22C1041800EAE13D /* TaskListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewCell.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 				C0BFC54C2290069A00C06D80 /* Supporting Files */,
 				C0BFC5682290605500C06D80 /* App Delegate */,
 				C0C484B722AE3D8700B7C2A9 /* Extensions */,
+				C086ACF222C2B802004256EA /* Protocols */,
 				C08470BF22915BF700C65264 /* Models */,
 				C0BFC56422905ED900C06D80 /* View Controllers */,
 			);
@@ -97,8 +102,17 @@
 				C0DA274122A9179D003568EF /* User.swift */,
 				C0C484BC22AE764F00B7C2A9 /* TMTaskGroup.swift */,
 				C0B394F022C106D600EAE13D /* TMTask.swift */,
+				C086ACEF22C2AFCA004256EA /* TMTasksDataSource.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C086ACF222C2B802004256EA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C086ACF322C2B82A004256EA /* TMTasksDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		C0BFC52E2290067400C06D80 = {
@@ -278,7 +292,9 @@
 				C0B394F122C106D600EAE13D /* TMTask.swift in Sources */,
 				C06B133222A713C200FF86D4 /* OnboardingViewController.swift in Sources */,
 				C06B133D22A713F200FF86D4 /* TMButton.swift in Sources */,
+				C086ACF022C2AFCA004256EA /* TMTasksDataSource.swift in Sources */,
 				C0E613DB22B7E58800EC80C0 /* TMNavigationBar.swift in Sources */,
+				C086ACF422C2B82A004256EA /* TMTasksDelegate.swift in Sources */,
 				C0C484BD22AE764F00B7C2A9 /* TMTaskGroup.swift in Sources */,
 				C06B133522A713C700FF86D4 /* AppDelegate.swift in Sources */,
 				C0DA274222A9179D003568EF /* User.swift in Sources */,
