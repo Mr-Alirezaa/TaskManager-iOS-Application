@@ -325,20 +325,20 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="DAC-Ip-Aya">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-hD-Yba">
-                                <rect key="frame" x="16" y="113" width="343" height="213"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-hD-Yba">
+                                <rect key="frame" x="15" y="178" width="345" height="560"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="task-cell" id="BqZ-Te-rHE" customClass="TaskListTableViewCell" customModule="TaskManager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.333332061767578" width="343" height="44"/>
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="task-cell" id="BqZ-Te-rHE" customClass="TaskListTableViewCell" customModule="TaskManager" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="345" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BqZ-Te-rHE" id="BEP-12-xZN">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ha0-JD-4KN">
-                                                    <rect key="frame" x="303" y="7" width="30" height="30"/>
+                                                    <rect key="frame" x="305" y="7" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="IdZ-r2-5Pq"/>
                                                         <constraint firstAttribute="height" constant="30" id="dP9-4Z-H8Q"/>
@@ -349,7 +349,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نام گروه" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maN-fg-ub8">
-                                                    <rect key="frame" x="242" y="11.666666666666664" width="53" height="21"/>
+                                                    <rect key="frame" x="244" y="11.666666666666664" width="53" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -375,13 +375,33 @@
                                     <outlet property="delegate" destination="JzG-mF-cmG" id="WHO-of-hKB"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ZY-3b-GVn" customClass="TMButton" customModule="TaskManager" customModuleProvider="target">
+                                <rect key="frame" x="15" y="118" width="345" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="np5-hR-Y4Z"/>
+                                </constraints>
+                                <state key="normal" title="اضافه کردن وظیفه"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="_styleName" value="fill"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="WPJ-A2-0m0" kind="presentation" id="wW5-y0-Ybj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Xaf-hD-Yba" firstAttribute="top" secondItem="4ZY-3b-GVn" secondAttribute="bottom" constant="20" id="0AU-7J-pfa"/>
+                            <constraint firstItem="4ZY-3b-GVn" firstAttribute="top" secondItem="Q1O-BZ-jlK" secondAttribute="top" constant="30" id="1ed-gm-8il"/>
+                            <constraint firstItem="Q1O-BZ-jlK" firstAttribute="bottom" secondItem="Xaf-hD-Yba" secondAttribute="bottom" constant="40" id="IOB-lh-EQF"/>
                             <constraint firstItem="DAC-Ip-Aya" firstAttribute="top" secondItem="tIV-3v-zD8" secondAttribute="topMargin" id="JIS-H9-GZJ"/>
+                            <constraint firstItem="Q1O-BZ-jlK" firstAttribute="trailing" secondItem="Xaf-hD-Yba" secondAttribute="trailing" constant="15" id="KRV-PF-bn2"/>
                             <constraint firstAttribute="bottom" secondItem="DAC-Ip-Aya" secondAttribute="bottom" id="M0b-J6-KxU"/>
                             <constraint firstItem="DAC-Ip-Aya" firstAttribute="leading" secondItem="Q1O-BZ-jlK" secondAttribute="leading" id="NMJ-uM-tDw"/>
                             <constraint firstItem="Q1O-BZ-jlK" firstAttribute="trailing" secondItem="DAC-Ip-Aya" secondAttribute="trailing" id="PbK-JN-jUh"/>
+                            <constraint firstItem="Q1O-BZ-jlK" firstAttribute="trailing" secondItem="4ZY-3b-GVn" secondAttribute="trailing" constant="15" id="gMU-bo-PnR"/>
+                            <constraint firstItem="4ZY-3b-GVn" firstAttribute="leading" secondItem="Q1O-BZ-jlK" secondAttribute="leading" constant="15" id="hoD-Bx-XbD"/>
+                            <constraint firstItem="Xaf-hD-Yba" firstAttribute="leading" secondItem="Q1O-BZ-jlK" secondAttribute="leading" constant="15" id="qrJ-uf-hVF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q1O-BZ-jlK"/>
                     </view>
@@ -393,6 +413,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OQ-xj-BIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5840.8000000000002" y="258.62068965517244"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="D8n-4j-c3z">
+            <objects>
+                <viewController id="WPJ-A2-0m0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rbK-nk-iMy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="GNm-zH-1vr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                            </imageView>
+                            <pickerView contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1l-C4-Kre">
+                                <rect key="frame" x="0.0" y="537" width="375" height="221"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pickerView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Pgm-H4-aBd">
+                                <rect key="frame" x="0.0" y="227" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GNm-zH-1vr" firstAttribute="top" secondItem="rbK-nk-iMy" secondAttribute="top" id="5ZC-M8-521"/>
+                            <constraint firstItem="GNm-zH-1vr" firstAttribute="leading" secondItem="rbK-nk-iMy" secondAttribute="leading" id="GpQ-Tb-X6e"/>
+                            <constraint firstAttribute="bottom" secondItem="GNm-zH-1vr" secondAttribute="bottom" id="Zet-je-aHY"/>
+                            <constraint firstAttribute="trailing" secondItem="GNm-zH-1vr" secondAttribute="trailing" id="pU4-Gk-c05"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="138-U9-jzl"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pJF-i4-Rdp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6768.8000000000002" y="258.62068965517244"/>
         </scene>
         <!--Group Name View Controller-->
         <scene sceneID="rgw-2l-QuH">

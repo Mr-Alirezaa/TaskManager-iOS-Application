@@ -81,7 +81,10 @@ extension GroupListViewController: UITableViewDelegate, UITableViewDataSource {
 
         let taskListViewController = self.storyboard?.instantiateViewController(withIdentifier: "task-list-viewcontroller") as! TaskListViewController
 
-        taskListViewController.taskGroup = taskGroups[indexPath.row]
+        let taskGroup = taskGroups[indexPath.row]
+
+        taskListViewController.navigationItem.title = taskGroup.name
+        taskListViewController.taskGroup = taskGroup
 
         self.navigationController?.pushViewController(taskListViewController, animated: true)
     }

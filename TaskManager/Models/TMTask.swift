@@ -18,6 +18,12 @@ struct TMTask {
     var updatedAt: String
 
     var taskDescription: String?
+
+    mutating public func toggleDoneStatus() {
+        doneStatus = !doneStatus
+    }
+
+    
 }
 
 extension TMTask: CustomStringConvertible {
@@ -50,5 +56,11 @@ extension TMTask: Codable {
         case updatedAt
         case taskDescription
         case groupId
+    }
+}
+
+extension TMTask: Equatable {
+    static func ==(lhs: TMTask, rhs: TMTask) -> Bool {
+        return lhs.id == rhs.id
     }
 }

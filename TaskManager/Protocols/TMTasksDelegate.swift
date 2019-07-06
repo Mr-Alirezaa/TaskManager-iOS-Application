@@ -7,7 +7,3 @@
 //
 
 import Foundation
-
-protocol TMTasksDelegate {
-    func tasksChanged(_ dataSource: TMTasksDataSource)
-}

@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol TMTasksDataSourceDelegate {
+    func tasksUpdated(_ dataSource: TMTasksDataSource)
+}
+
 public class TMTasksDataSource {
 
     private var tasks = [TMTask]()
@@ -23,33 +27,43 @@ public class TMTasksDataSource {
 
     var parentGroup: TMTaskGroup
 
-//    var delegate: TMTasksDelegate
+    var delegate: TMTasksDataSourceDelegate?
 
     private let connectionManager = ConnectionManager.default
 
     init(ofGroup group: TMTaskGroup) {
         self.parentGroup = group
-//        fetchTasks()
+
     }
 
-    private func fetchTasks() {
+    func fetchTasks() {
         connectionManager.fetchTasks(for: parentGroup) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(_): break
-                case .success(let tasks):
-                    for task in tasks {
-                        let check = self.tasks.filter { $0.id == task.id }
-                        if check.isEmpty {
+                case .success(let downloadedTasks):
+                    for task in downloadedTasks {
+                        let check = self.tasks.firstIndex(of: task)
+                        if check == nil {
                             self.tasks.append(task)
                         }
                     }
+                    self.delegate?.tasksUpdated(self)
                 }
             }
         }
     }
+}
 
-    private func reloadTasks() {
-        fetchTasks()
+extension TMTasksDataSource: TaskListTableViewCellDelegate {
+    func toggledDoneStatus(_ cell: TaskListTableViewCell, task: TMTask) {
+        let index = self.tasks.firstIndex(of: task)
+        if let index = index {
+            let oldDoneStatus = tasks[index].doneStatus
+            tasks[index].doneStatus = !oldDoneStatus
+            delegate?.tasksUpdated(self)
+        }
     }
+
+
 }

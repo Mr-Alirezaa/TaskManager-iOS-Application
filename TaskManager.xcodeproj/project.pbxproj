@@ -34,6 +34,17 @@
 		C0C484BD22AE764F00B7C2A9 /* TMTaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C484BC22AE764F00B7C2A9 /* TMTaskGroup.swift */; };
 		C0DA274222A9179D003568EF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA274122A9179D003568EF /* User.swift */; };
 		C0E613DB22B7E58800EC80C0 /* TMNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E613DA22B7E58800EC80C0 /* TMNavigationBar.swift */; };
+		C0E9FA5922D1226200DF24A4 /* AZPersianMonthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA4E22D1226100DF24A4 /* AZPersianMonthType.swift */; };
+		C0E9FA5A22D1226200DF24A4 /* DayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA4F22D1226100DF24A4 /* DayType.swift */; };
+		C0E9FA5B22D1226200DF24A4 /* AZHijriMonthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5022D1226100DF24A4 /* AZHijriMonthType.swift */; };
+		C0E9FA5C22D1226200DF24A4 /* AZGregorianMonthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5122D1226100DF24A4 /* AZGregorianMonthType.swift */; };
+		C0E9FA5D22D1226200DF24A4 /* AZMonthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5222D1226100DF24A4 /* AZMonthManager.swift */; };
+		C0E9FA5E22D1226200DF24A4 /* AZConvertorCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5322D1226100DF24A4 /* AZConvertorCalendar.swift */; };
+		C0E9FA5F22D1226200DF24A4 /* AZHijriCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5422D1226100DF24A4 /* AZHijriCalendar.swift */; };
+		C0E9FA6022D1226200DF24A4 /* AZCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5522D1226100DF24A4 /* AZCalendar.swift */; };
+		C0E9FA6122D1226200DF24A4 /* DateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5622D1226100DF24A4 /* DateType.swift */; };
+		C0E9FA6222D1226200DF24A4 /* AZPersianCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5722D1226100DF24A4 /* AZPersianCalendar.swift */; };
+		C0E9FA6322D1226200DF24A4 /* AZGregorianCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5822D1226200DF24A4 /* AZGregorianCalendar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +77,17 @@
 		C0C484BC22AE764F00B7C2A9 /* TMTaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTaskGroup.swift; sourceTree = "<group>"; };
 		C0DA274122A9179D003568EF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C0E613DA22B7E58800EC80C0 /* TMNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMNavigationBar.swift; sourceTree = "<group>"; };
+		C0E9FA4E22D1226100DF24A4 /* AZPersianMonthType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZPersianMonthType.swift; sourceTree = "<group>"; };
+		C0E9FA4F22D1226100DF24A4 /* DayType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayType.swift; sourceTree = "<group>"; };
+		C0E9FA5022D1226100DF24A4 /* AZHijriMonthType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZHijriMonthType.swift; sourceTree = "<group>"; };
+		C0E9FA5122D1226100DF24A4 /* AZGregorianMonthType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZGregorianMonthType.swift; sourceTree = "<group>"; };
+		C0E9FA5222D1226100DF24A4 /* AZMonthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZMonthManager.swift; sourceTree = "<group>"; };
+		C0E9FA5322D1226100DF24A4 /* AZConvertorCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZConvertorCalendar.swift; sourceTree = "<group>"; };
+		C0E9FA5422D1226100DF24A4 /* AZHijriCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZHijriCalendar.swift; sourceTree = "<group>"; };
+		C0E9FA5522D1226100DF24A4 /* AZCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZCalendar.swift; sourceTree = "<group>"; };
+		C0E9FA5622D1226100DF24A4 /* DateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateType.swift; sourceTree = "<group>"; };
+		C0E9FA5722D1226100DF24A4 /* AZPersianCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZPersianCalendar.swift; sourceTree = "<group>"; };
+		C0E9FA5822D1226200DF24A4 /* AZGregorianCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZGregorianCalendar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +120,7 @@
 		C08470BF22915BF700C65264 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C0E9FA4C22D1224500DF24A4 /* Persian DateTime */,
 				C08470C022915C3F00C65264 /* ConnectionManager.swift */,
 				C0DA274122A9179D003568EF /* User.swift */,
 				C0C484BC22AE764F00B7C2A9 /* TMTaskGroup.swift */,
@@ -210,6 +233,32 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C0E9FA4C22D1224500DF24A4 /* Persian DateTime */ = {
+			isa = PBXGroup;
+			children = (
+				C0E9FA5522D1226100DF24A4 /* AZCalendar.swift */,
+				C0E9FA5322D1226100DF24A4 /* AZConvertorCalendar.swift */,
+				C0E9FA5822D1226200DF24A4 /* AZGregorianCalendar.swift */,
+				C0E9FA5422D1226100DF24A4 /* AZHijriCalendar.swift */,
+				C0E9FA5222D1226100DF24A4 /* AZMonthManager.swift */,
+				C0E9FA5722D1226100DF24A4 /* AZPersianCalendar.swift */,
+				C0E9FA5622D1226100DF24A4 /* DateType.swift */,
+				C0E9FA4D22D1226100DF24A4 /* Type */,
+			);
+			path = "Persian DateTime";
+			sourceTree = "<group>";
+		};
+		C0E9FA4D22D1226100DF24A4 /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				C0E9FA4E22D1226100DF24A4 /* AZPersianMonthType.swift */,
+				C0E9FA4F22D1226100DF24A4 /* DayType.swift */,
+				C0E9FA5022D1226100DF24A4 /* AZHijriMonthType.swift */,
+				C0E9FA5122D1226100DF24A4 /* AZGregorianMonthType.swift */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -284,18 +333,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E9FA6022D1226200DF24A4 /* AZCalendar.swift in Sources */,
 				C06B133322A713C200FF86D4 /* LoginViewController.swift in Sources */,
 				C06B133122A7138600FF86D4 /* ConnectionManager.swift in Sources */,
 				C0B394EF22C1041800EAE13D /* TaskListTableViewCell.swift in Sources */,
 				C052938D22AD26F300281EDB /* GroupListViewController.swift in Sources */,
 				C0C484B922AE3DA200B7C2A9 /* String+Validations.swift in Sources */,
 				C0B394F122C106D600EAE13D /* TMTask.swift in Sources */,
+				C0E9FA6322D1226200DF24A4 /* AZGregorianCalendar.swift in Sources */,
 				C06B133222A713C200FF86D4 /* OnboardingViewController.swift in Sources */,
 				C06B133D22A713F200FF86D4 /* TMButton.swift in Sources */,
+				C0E9FA5E22D1226200DF24A4 /* AZConvertorCalendar.swift in Sources */,
+				C0E9FA5922D1226200DF24A4 /* AZPersianMonthType.swift in Sources */,
+				C0E9FA5C22D1226200DF24A4 /* AZGregorianMonthType.swift in Sources */,
 				C086ACF022C2AFCA004256EA /* TMTasksDataSource.swift in Sources */,
+				C0E9FA5D22D1226200DF24A4 /* AZMonthManager.swift in Sources */,
+				C0E9FA5B22D1226200DF24A4 /* AZHijriMonthType.swift in Sources */,
+				C0E9FA5A22D1226200DF24A4 /* DayType.swift in Sources */,
 				C0E613DB22B7E58800EC80C0 /* TMNavigationBar.swift in Sources */,
 				C086ACF422C2B82A004256EA /* TMTasksDelegate.swift in Sources */,
 				C0C484BD22AE764F00B7C2A9 /* TMTaskGroup.swift in Sources */,
+				C0E9FA6122D1226200DF24A4 /* DateType.swift in Sources */,
+				C0E9FA6222D1226200DF24A4 /* AZPersianCalendar.swift in Sources */,
 				C06B133522A713C700FF86D4 /* AppDelegate.swift in Sources */,
 				C0DA274222A9179D003568EF /* User.swift in Sources */,
 				C06B133422A713C200FF86D4 /* RegisterViewController.swift in Sources */,
@@ -305,6 +364,7 @@
 				C06B133B22A713E400FF86D4 /* Constants.swift in Sources */,
 				C0B394ED22C1022300EAE13D /* TaskListViewController.swift in Sources */,
 				C0B0301222AFDFED00DBE765 /* GroupNameViewController.swift in Sources */,
+				C0E9FA5F22D1226200DF24A4 /* AZHijriCalendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
