@@ -25,6 +25,7 @@
 		C06B133F22A717A200FF86D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0BFC5412290067500C06D80 /* Assets.xcassets */; };
 		C086ACF022C2AFCA004256EA /* TMTasksDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086ACEF22C2AFCA004256EA /* TMTasksDataSource.swift */; };
 		C086ACF422C2B82A004256EA /* TMTasksDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086ACF322C2B82A004256EA /* TMTasksDelegate.swift */; };
+		C09F91C522D23E5300430AD5 /* TMGroupsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F91C422D23E5300430AD5 /* TMGroupsDataSource.swift */; };
 		C0B0301222AFDFED00DBE765 /* GroupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0301122AFDFED00DBE765 /* GroupNameViewController.swift */; };
 		C0B394ED22C1022300EAE13D /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B394EC22C1022300EAE13D /* TaskListViewController.swift */; };
 		C0B394EF22C1041800EAE13D /* TaskListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B394EE22C1041800EAE13D /* TaskListTableViewCell.swift */; };
@@ -36,7 +37,6 @@
 		C0E613DB22B7E58800EC80C0 /* TMNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E613DA22B7E58800EC80C0 /* TMNavigationBar.swift */; };
 		C0E9FA5922D1226200DF24A4 /* AZPersianMonthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA4E22D1226100DF24A4 /* AZPersianMonthType.swift */; };
 		C0E9FA5A22D1226200DF24A4 /* DayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA4F22D1226100DF24A4 /* DayType.swift */; };
-		C0E9FA5B22D1226200DF24A4 /* AZHijriMonthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5022D1226100DF24A4 /* AZHijriMonthType.swift */; };
 		C0E9FA5C22D1226200DF24A4 /* AZGregorianMonthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5122D1226100DF24A4 /* AZGregorianMonthType.swift */; };
 		C0E9FA5D22D1226200DF24A4 /* AZMonthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5222D1226100DF24A4 /* AZMonthManager.swift */; };
 		C0E9FA5E22D1226200DF24A4 /* AZConvertorCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5322D1226100DF24A4 /* AZConvertorCalendar.swift */; };
@@ -46,7 +46,6 @@
 		C0E9FA6222D1226200DF24A4 /* AZPersianCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5722D1226100DF24A4 /* AZPersianCalendar.swift */; };
 		C0E9FA6322D1226200DF24A4 /* AZGregorianCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA5822D1226200DF24A4 /* AZGregorianCalendar.swift */; };
 		C0E9FA6522D1258300DF24A4 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA6422D1258300DF24A4 /* NewTaskViewController.swift */; };
-		C0E9FA6722D125A800DF24A4 /* PersianDatePickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E9FA6622D125A800DF24A4 /* PersianDatePickerDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +55,7 @@
 		C08470C022915C3F00C65264 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		C086ACEF22C2AFCA004256EA /* TMTasksDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTasksDataSource.swift; sourceTree = "<group>"; };
 		C086ACF322C2B82A004256EA /* TMTasksDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTasksDelegate.swift; sourceTree = "<group>"; };
+		C09F91C422D23E5300430AD5 /* TMGroupsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGroupsDataSource.swift; sourceTree = "<group>"; };
 		C0B0301122AFDFED00DBE765 /* GroupNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupNameViewController.swift; sourceTree = "<group>"; };
 		C0B394EC22C1022300EAE13D /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		C0B394EE22C1041800EAE13D /* TaskListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewCell.swift; sourceTree = "<group>"; };
@@ -81,7 +81,6 @@
 		C0E613DA22B7E58800EC80C0 /* TMNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMNavigationBar.swift; sourceTree = "<group>"; };
 		C0E9FA4E22D1226100DF24A4 /* AZPersianMonthType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZPersianMonthType.swift; sourceTree = "<group>"; };
 		C0E9FA4F22D1226100DF24A4 /* DayType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayType.swift; sourceTree = "<group>"; };
-		C0E9FA5022D1226100DF24A4 /* AZHijriMonthType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZHijriMonthType.swift; sourceTree = "<group>"; };
 		C0E9FA5122D1226100DF24A4 /* AZGregorianMonthType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZGregorianMonthType.swift; sourceTree = "<group>"; };
 		C0E9FA5222D1226100DF24A4 /* AZMonthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZMonthManager.swift; sourceTree = "<group>"; };
 		C0E9FA5322D1226100DF24A4 /* AZConvertorCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZConvertorCalendar.swift; sourceTree = "<group>"; };
@@ -91,7 +90,6 @@
 		C0E9FA5722D1226100DF24A4 /* AZPersianCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZPersianCalendar.swift; sourceTree = "<group>"; };
 		C0E9FA5822D1226200DF24A4 /* AZGregorianCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZGregorianCalendar.swift; sourceTree = "<group>"; };
 		C0E9FA6422D1258300DF24A4 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
-		C0E9FA6622D125A800DF24A4 /* PersianDatePickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersianDatePickerDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +128,7 @@
 				C0C484BC22AE764F00B7C2A9 /* TMTaskGroup.swift */,
 				C0B394F022C106D600EAE13D /* TMTask.swift */,
 				C086ACEF22C2AFCA004256EA /* TMTasksDataSource.swift */,
-				C0E9FA6622D125A800DF24A4 /* PersianDatePickerDataSource.swift */,
+				C09F91C422D23E5300430AD5 /* TMGroupsDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,7 +257,6 @@
 			children = (
 				C0E9FA4E22D1226100DF24A4 /* AZPersianMonthType.swift */,
 				C0E9FA4F22D1226100DF24A4 /* DayType.swift */,
-				C0E9FA5022D1226100DF24A4 /* AZHijriMonthType.swift */,
 				C0E9FA5122D1226100DF24A4 /* AZGregorianMonthType.swift */,
 			);
 			path = Type;
@@ -352,9 +349,9 @@
 				C0E9FA5E22D1226200DF24A4 /* AZConvertorCalendar.swift in Sources */,
 				C0E9FA5922D1226200DF24A4 /* AZPersianMonthType.swift in Sources */,
 				C0E9FA5C22D1226200DF24A4 /* AZGregorianMonthType.swift in Sources */,
+				C09F91C522D23E5300430AD5 /* TMGroupsDataSource.swift in Sources */,
 				C086ACF022C2AFCA004256EA /* TMTasksDataSource.swift in Sources */,
 				C0E9FA5D22D1226200DF24A4 /* AZMonthManager.swift in Sources */,
-				C0E9FA5B22D1226200DF24A4 /* AZHijriMonthType.swift in Sources */,
 				C0E9FA5A22D1226200DF24A4 /* DayType.swift in Sources */,
 				C0E613DB22B7E58800EC80C0 /* TMNavigationBar.swift in Sources */,
 				C086ACF422C2B82A004256EA /* TMTasksDelegate.swift in Sources */,
@@ -363,7 +360,6 @@
 				C0E9FA6222D1226200DF24A4 /* AZPersianCalendar.swift in Sources */,
 				C06B133522A713C700FF86D4 /* AppDelegate.swift in Sources */,
 				C0DA274222A9179D003568EF /* User.swift in Sources */,
-				C0E9FA6722D125A800DF24A4 /* PersianDatePickerDataSource.swift in Sources */,
 				C06B133422A713C200FF86D4 /* RegisterViewController.swift in Sources */,
 				C0E9FA6522D1258300DF24A4 /* NewTaskViewController.swift in Sources */,
 				C02E70E722B14D670058BCA7 /* TaskDetailsViewController.swift in Sources */,

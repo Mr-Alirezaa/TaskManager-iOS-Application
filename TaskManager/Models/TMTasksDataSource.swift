@@ -53,6 +53,12 @@ public class TMTasksDataSource {
             }
         }
     }
+
+    func deleteTask(task: TMTask) {
+        connectionManager.delete(task: task) {
+            
+        }
+    }
 }
 
 extension TMTasksDataSource: TaskListTableViewCellDelegate {

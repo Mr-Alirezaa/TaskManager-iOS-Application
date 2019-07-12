@@ -21,15 +21,47 @@ class TaskListViewController: UIViewController {
         super.viewDidLoad()
 
         dataSource.delegate = self
+
         dataSource.fetchTasks()
-        
+
+        let refreshView = UIRefreshControl()
+        refreshView.addTarget(self, action: #selector(refreshTasks), for: .valueChanged)
+        tableView.refreshControl = refreshView
+    }
+
+    @objc private func refreshTasks() {
+        dataSource.fetchTasks()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
+
+    @IBAction func newTask(_ sender: UIButton) {
+        let newTaskViewController = self.storyboard?.instantiateViewController(withIdentifier: "new-task-viewcontroller") as! NewTaskViewController
+        navigationController?.modalPresentationStyle = .pageSheet
+        newTaskViewController.group = taskGroup
+        newTaskViewController.delegate = self
+        navigationController?.present(newTaskViewController, animated: true)
+
+    }
+}
+
+extension TaskListViewController: ModalViewControllerDelegate {
+
+    func viewDismissed() {
+        dataSource.fetchTasks()
     }
 }
 
 extension TaskListViewController: TMTasksDataSourceDelegate {
+
     func tasksUpdated(_ dataSource: TMTasksDataSource) {
         self.dataSource = dataSource
         self.tableView.reloadData()
+
+        self.tableView.refreshControl?.endRefreshing()
     }
 
 
@@ -62,7 +94,7 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
             task = dataSource.finishedTasks[indexPath.row]
         }
 
-        cell.taskTitleLabel.text = task.taskName
+        cell.taskTitleLabel.text = task.name
         cell.task = task
         cell.delegate = dataSource
         return cell
@@ -96,6 +128,14 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         label.attributedText = NSAttributedString(string: text, attributes: attributes)
         return label
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { (deleteAction, view, completionHandler) in
+            DispatchQueue.global(qos: .background).sync {
+                dataSource.deleteTask
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

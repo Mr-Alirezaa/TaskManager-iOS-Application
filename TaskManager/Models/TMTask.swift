@@ -10,10 +10,10 @@ import Foundation
 
 struct TMTask {
     var id: Int
-    var taskName: String
+    var name: String
     var dueDate: String
     var doneStatus: Bool
-    var groupId: Int
+    var groupId: Int?
     var createdAt: String
     var updatedAt: String
 
@@ -32,11 +32,11 @@ extension TMTask: CustomStringConvertible {
 
         --------------------------------------------
         Task with id: \(self.id),
-        name: \(self.taskName),
+        name: \(self.name),
         createdAt: \(self.createdAt),
         updatedAt: \(self.updatedAt),
         doneStatus: \(doneStatus),
-        groupId: \(self.groupId)
+        groupId: \(self.groupId ?? -1)
         --------------------------------------------
 
         """
@@ -49,7 +49,7 @@ extension TMTask: CustomStringConvertible {
 extension TMTask: Codable {
     enum CodingKeys: String, CodingKey {
         case id
-        case taskName
+        case name = "taskName"
         case dueDate = "executionTime"
         case doneStatus
         case createdAt

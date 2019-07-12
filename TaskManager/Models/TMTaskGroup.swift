@@ -35,3 +35,9 @@ struct TMTaskGroup: Codable, CustomStringConvertible {
         case updatedAt
     }
 }
+
+extension TMTaskGroup: Equatable {
+    static func ==(_ lhs: TMTaskGroup, _ rhs: TMTaskGroup) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

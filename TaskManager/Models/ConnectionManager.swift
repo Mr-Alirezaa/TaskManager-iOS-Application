@@ -12,8 +12,8 @@ public class ConnectionManager {
     
     public static let `default` = ConnectionManager()
 
-    private let session: URLSession!
-    private let decoder: JSONDecoder!
+    private let session: URLSession
+    private let decoder: JSONDecoder
 
     private init() {
         session = .shared
@@ -36,7 +36,6 @@ public class ConnectionManager {
         if requiresToken {
             request.addValue(UserDefaults.standard.string(forKey: TMUserDefualtsKeys.apiToken)!, forHTTPHeaderField: "authorization")
         }
-
         return request
     }
     
@@ -163,7 +162,7 @@ public class ConnectionManager {
     
     // MARK: - Manage Task Groups.
     
-    func fetchTaskGroups(for user: User, onSuccess: @escaping (Result<[TMTaskGroup], Error>) -> ()) {
+    func fetchTaskGroups(onSuccess: @escaping (Result<[TMTaskGroup], Error>) -> ()) {
         let session = URLSession.shared
         
         let getTaskURL = URL(string: "http://buzztaab.com:8081/api/getGroup/")!
@@ -384,11 +383,70 @@ public class ConnectionManager {
             }
         }.resume()
     }
+
+    func addTask(name: String, dueTime: Date, to group: TMTaskGroup, onSuccess: @escaping (Result<TMTask, Error>) -> Void) {
+
+        guard let url = URL(string: "http://buzztaab.com:8081/api/createTask/") else {
+            return
+        }
+
+        let dateFormatter = ISO8601DateFormatter()
+        let formattedDate = dateFormatter.string(from: dueTime)
+
+        var request = defaultURLRequest(url: url)
+
+        let body: JSONDictionary = ["group_id": group.id, "taskName": name, "executionTime": formattedDate]
+
+        let encodedBody: Data
+        do {
+            encodedBody = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        } catch let encodingError {
+            onSuccess(.failure(encodingError))
+            return
+        }
+
+        request.httpBody = encodedBody
+
+        session.dataTask(with: request) { (data, urlResponse, error) in
+            if let error = error {
+                onSuccess(.failure(error))
+                return
+            }
+
+            guard let data = data else {
+                onSuccess(.failure(TMError.invalidResponse))
+                return
+            }
+
+            do {
+                let decodedData = try self.decoder.decode(Response<TMTask>.self, from: data)
+
+                switch decodedData.code {
+                case 200:
+                    onSuccess(.success(decodedData.body!))
+
+                case -1:
+                    if decodedData.message == "taskName" {
+                        onSuccess(.failure(TMError.CreateTaskError.taskNameNotDefined))
+                    } else {
+                        onSuccess(.failure(TMError.somethingWentWrong))
+                    }
+                    return
+
+                default:
+                    return
+                }
+            } catch let decodingError {
+                onSuccess(.failure(decodingError))
+            }
+        }.resume()
+    }
 }
 
 enum TMError: LocalizedError {
     case notFound
     case somethingWentWrong
+    case invalidResponse
     
     enum SignUpError: LocalizedError {
         case userAlreadyRegistered
@@ -414,6 +472,31 @@ enum TMError: LocalizedError {
     enum FetchTasksError: LocalizedError {
         case taskNotFound
     }
+
+    enum CreateTaskError: Error {
+        case groupNotFound
+        case taskNameNotDefined
+    }
 }
 
+struct Response<BodyType> where BodyType: Decodable {
+    var code: Int
+    var message: String
+    var body: BodyType?
+}
 
+extension Response: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case code
+        case message
+        case body
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        code = try container.decode(Int.self, forKey: .code)
+        message = try container.decode(String.self, forKey: .message)
+        body = try? container.decode(BodyType.self, forKey: .body)
+    }
+}

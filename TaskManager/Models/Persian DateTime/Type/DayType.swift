@@ -7,7 +7,26 @@
 //
 
 import Foundation
-enum DayType : Int {
+enum DayType: Int, CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .sunday:
+            return "یکشنبه"
+        case .monday:
+            return "دوشنبه"
+        case .tuesday:
+            return "سه‌شنبه"
+        case .wednesday:
+            return "چهارشنبه"
+        case .thursday:
+            return "پنچ‌شنبه"
+        case .friday:
+            return "جمعه"
+        case .saturday:
+            return "شنبه"
+        }
+    }
+
     case sunday
     case monday
     case tuesday
@@ -15,9 +34,8 @@ enum DayType : Int {
     case thursday
     case friday
     case saturday
-    
-    
-    init(dayString input : String){
+
+    init(dayString input: String) {
         var result = 0
         switch input {
         case "Sun":

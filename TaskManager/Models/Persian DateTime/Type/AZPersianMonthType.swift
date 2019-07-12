@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public enum AZPersianMonthType : Int   {
+enum AZPersianMonthType: Int, CustomStringConvertible {
     
     case farvardin = 1
     case ordibehesht = 2
@@ -25,29 +25,29 @@ public enum AZPersianMonthType : Int   {
     var description: String {
         switch self {
         case .farvardin:
-            return "farvardin"
+            return "فروردین"
         case .ordibehesht:
-            return "ordibehesht"
+            return "اردیبهشت"
         case .khordad:
-            return "khordad"
+            return "خرداد"
         case .tir:
-            return "tir"
+            return "تیر"
         case .mordad:
-            return "mordad"
+            return "مرداد"
         case .shahrivar:
-            return "shahrivar"
+            return "شهریور"
         case .mehr:
-            return "mehr"
+            return "مهر"
         case .aban:
-            return "aban"
+            return "آبان"
         case .azar:
-            return "azar"
+            return "آذر"
         case .dey:
-            return "dey"
+            return "دی"
         case .bahman:
-            return "bahman"
+            return "بهمن"
         case .esfand:
-            return "esfand"
+            return "اسفند"
         }
     }
     

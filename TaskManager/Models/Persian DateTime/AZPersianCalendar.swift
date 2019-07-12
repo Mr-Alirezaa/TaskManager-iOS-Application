@@ -11,14 +11,13 @@ public class AZPersianCalendar {
     
     
     
-  public  static func getPersianDayNumber()->Int{
-        
+    public  static func getPersianDayNumber()->Int{
         return AZPersianCalendar.getPersianDate().day
     }
-  public  static func getPersianMonthNumber()->Int{
+    public  static func getPersianMonthNumber()->Int{
         return AZPersianCalendar.getPersianDate().month
     }
-   public static func getPersianYearNumber()->Int{
+    public static func getPersianYearNumber()->Int{
         return AZPersianCalendar.getPersianDate().year
     }
     
@@ -31,6 +30,6 @@ public class AZPersianCalendar {
         let persianCalendar = Calendar.init(identifier: .persian)
         let persianComponents = persianCalendar.dateComponents([.year, .month, .day], from: date!)
         return (day : persianComponents.day! , month : persianComponents.month! , year : persianComponents.year!)
-          }
+    }
     
 }

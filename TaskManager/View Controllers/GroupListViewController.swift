@@ -29,7 +29,7 @@ class GroupListViewController: UIViewController {
     }
     
     func fetchTaskGroups() {
-        connectionManager.fetchTaskGroups(for: User.test) { (result) in
+        connectionManager.fetchTaskGroups { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let groups):
