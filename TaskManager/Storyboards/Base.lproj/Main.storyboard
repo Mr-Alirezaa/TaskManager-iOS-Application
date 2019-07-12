@@ -537,8 +537,10 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="zSJ-RP-uhL" id="YpA-JV-PsB"/>
+                        <outlet property="datePickerViewTitleLabel" destination="slN-Pa-5tw" id="PNB-jz-HfA"/>
                         <outlet property="navigationBar" destination="rhV-Vj-Ml1" id="Vlz-Dv-rEJ"/>
                         <outlet property="tableView" destination="6bv-nz-rVo" id="JkR-Sy-Lcs"/>
+                        <outlet property="tableViewTitleLabel" destination="sLz-fb-jLY" id="pri-rf-phQ"/>
                         <outlet property="taskNameTextField" destination="eK1-NF-zlo" id="EBp-S2-70p"/>
                     </connections>
                 </viewController>

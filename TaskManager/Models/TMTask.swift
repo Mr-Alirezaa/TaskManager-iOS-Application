@@ -12,7 +12,7 @@ struct TMTask {
     var id: Int
     var name: String
     var dueDate: String
-    var doneStatus: Bool
+    var doneStatus: Bool?
     var groupId: Int?
     var createdAt: String
     var updatedAt: String
@@ -20,7 +20,7 @@ struct TMTask {
     var taskDescription: String?
 
     mutating public func toggleDoneStatus() {
-        doneStatus = !doneStatus
+        doneStatus = !doneStatus!
     }
 
     
@@ -35,7 +35,7 @@ extension TMTask: CustomStringConvertible {
         name: \(self.name),
         createdAt: \(self.createdAt),
         updatedAt: \(self.updatedAt),
-        doneStatus: \(doneStatus),
+        doneStatus: \(doneStatus ?? false),
         groupId: \(self.groupId ?? -1)
         --------------------------------------------
 

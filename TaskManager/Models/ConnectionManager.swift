@@ -441,6 +441,114 @@ public class ConnectionManager {
             }
         }.resume()
     }
+
+    func delete(task: TMTask, onSuccess: @escaping (Result<Bool, Error>) -> Void) {
+        guard let url = URL(string: "http://buzztaab.com:8081/api/deleteTask/") else {
+            return
+        }
+
+        var request = defaultURLRequest(url: url)
+
+        let body: JSONDictionary = ["task_id": task.id]
+
+        let encodedBody: Data
+        do {
+            encodedBody = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        } catch let encodingError {
+            onSuccess(.failure(encodingError))
+            return
+        }
+
+        request.httpBody = encodedBody
+
+        session.dataTask(with: request) { (data, urlResponse, error) in
+            if let error = error {
+                onSuccess(.failure(error))
+                return
+            }
+
+            guard let data = data else {
+                onSuccess(.failure(TMError.invalidResponse))
+                return
+            }
+
+            do {
+                let decodedData = try self.decoder.decode(Response<TMTask>.self, from: data)
+
+                switch decodedData.code {
+                case 200:
+                    onSuccess(.success(true))
+
+                case -1:
+                    onSuccess(.failure(TMError.somethingWentWrong))
+                    return
+
+                default:
+                    return
+                }
+            } catch let decodingError {
+                onSuccess(.failure(decodingError))
+            }
+        }.resume()
+    }
+
+    func editTask(task: TMTask, newName name: String,
+                  newDueTime dueTime: Date,
+                  newGroup group: TMTaskGroup,
+                  onSuccess: @escaping (Result<TMTask, Error>) -> Void) {
+        guard let url = URL(string: "http://buzztaab.com:8081/api/updateTask/") else {
+            return
+        }
+
+        let dateFormatter = ISO8601DateFormatter()
+        let formattedDate = dateFormatter.string(from: dueTime)
+        
+
+        var request = defaultURLRequest(url: url)
+
+        let body: JSONDictionary = ["task_id": task.id, "group_id": group.id, "taskName": name, "executionTime": formattedDate]
+
+
+        let encodedBody: Data
+        do {
+            encodedBody = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        } catch let encodingError {
+            onSuccess(.failure(encodingError))
+            return
+        }
+
+        request.httpBody = encodedBody
+
+        session.dataTask(with: request) { (data, urlResponse, error) in
+            if let error = error {
+                onSuccess(.failure(error))
+                return
+            }
+
+            guard let data = data else {
+                onSuccess(.failure(TMError.invalidResponse))
+                return
+            }
+
+            do {
+                let decodedData = try self.decoder.decode(Response<TMTask>.self, from: data)
+
+                switch decodedData.code {
+                case 200:
+                    onSuccess(.success(decodedData.body!))
+
+                case -1:
+                    onSuccess(.failure(TMError.somethingWentWrong))
+                    return
+
+                default:
+                    return
+                }
+            } catch let decodingError {
+                onSuccess(.failure(decodingError))
+            }
+            }.resume()
+    }
 }
 
 enum TMError: LocalizedError {

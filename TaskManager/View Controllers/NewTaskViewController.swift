@@ -10,6 +10,7 @@ import UIKit
 
 protocol ModalViewControllerDelegate {
     func viewDismissed()
+    func taskUpdated(task: TMTask)
 }
 
 class NewTaskViewController: UIViewController {
@@ -18,8 +19,14 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var taskNameTextField: TMTextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationItem!
-
+    @IBOutlet weak var tableViewTitleLabel: UILabel!
+    @IBOutlet weak var datePickerViewTitleLabel: UILabel!
+    
     let connectionManager = ConnectionManager.default
+
+    var isEditingMode = false
+    var editingTask: TMTask?
+
 
     var group: TMTaskGroup!
     var tableDataSource: TMGroupsDataSource!
@@ -44,7 +51,23 @@ class NewTaskViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = tableDataSource
 
+        if isEditingMode {
+            navigationBar.title = "بروزرسانی وظیفه"
 
+            taskNameTextField.text = editingTask?.name
+
+            let dateFormatter = ISO8601DateFormatter()
+            let date = dateFormatter.date(from: editingTask!.dueDate)
+            if let date = date {
+                datePicker.setDate(date, animated: true)
+            }
+        }
+
+        let textAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont(name: TMFonts.shabnamBold, size: 28)!,
+                                                             .foregroundColor: UIColor.white]
+
+        tableViewTitleLabel.attributedText = NSAttributedString(string: tableViewTitleLabel.text!, attributes: textAttributes)
+        datePickerViewTitleLabel.attributedText = NSAttributedString(string: datePickerViewTitleLabel.text!, attributes: textAttributes)
     }
 
     private func showErrorAlert(title: String, message: String) {
@@ -59,6 +82,33 @@ class NewTaskViewController: UIViewController {
             }
         }
     }
+
+    private func editTask() {
+
+        guard let selectedGroup = tableDataSource.selectedGroup else {
+            showErrorAlert(title: "خطا", message: "باید یک گروه را برای این وظیفه انتخاب کنید.")
+            return
+        }
+
+        connectionManager.editTask(task: editingTask!,
+                                   newName: taskNameTextField.text!,
+                                   newDueTime: datePicker.date,
+                                   newGroup: selectedGroup) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                    self.showErrorAlert(title: "خطا", message: "به هنگام اعمال تغییرات در وظیفه مشکلی پیش آمده است.")
+                case .success(let task):
+                    self.dismiss(animated: true) {
+                        self.delegate?.taskUpdated(task: task)
+                    }
+                }
+            }
+        }
+
+    }
+
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
 
         guard let selectedGroup = tableDataSource.selectedGroup else {
@@ -76,12 +126,17 @@ class NewTaskViewController: UIViewController {
             return
         }
 
+        if isEditingMode {
+            editTask()
+            return
+        }
+
         connectionManager.addTask(name: taskNameTextField.text!, dueTime: datePicker.date, to: selectedGroup) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
                     print(error)
-                    self.showErrorAlert(title: "خطا", message: "به هنگام ایجاد تسک مشکلی پیش آمده است.")
+                    self.showErrorAlert(title: "خطا", message: "به هنگام ایجاد وظیفه مشکلی پیش آمده است.")
                 case .success(_):
                     self.dismiss(animated: true) {
                         self.delegate?.viewDismissed()

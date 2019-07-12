@@ -10,6 +10,9 @@ import Foundation
 
 protocol TMTasksDataSourceDelegate {
     func tasksUpdated(_ dataSource: TMTasksDataSource)
+    func singleTaskUpdated(_ dataSource: TMTasksDataSource, atIndexPath indexPath: IndexPath)
+    func singleTaskRemoved(_ dataSource: TMTasksDataSource, atIndexPath indexPath: IndexPath)
+
 }
 
 public class TMTasksDataSource {
@@ -36,6 +39,36 @@ public class TMTasksDataSource {
 
     }
 
+    func getTask(atIndexPath indexPath: IndexPath) -> TMTask? {
+        if indexPath.section == 0 {
+            return unfinishedTasks[indexPath.row]
+        } else {
+            return finishedTasks[indexPath.row]
+        }
+    }
+
+    private func indexPath(for task: TMTask) -> IndexPath {
+        let section: Int = task.doneStatus! ? 1 : 0
+        let row: Int = task.doneStatus! ? finishedTasks.firstIndex(of: task)! : unfinishedTasks.firstIndex(of: task)!
+        return IndexPath(row: row, section: section)
+    }
+
+    func updateTask(task: TMTask) {
+        let index = tasks.firstIndex(of: task)
+        if let index = index {
+            if task.groupId != parentGroup.id {
+                tasks.remove(at: index)
+                delegate?.singleTaskUpdated(self, atIndexPath: indexPath(for: tasks[index]))
+                return
+            }
+            tasks[index].name = task.name
+            tasks[index].groupId = task.groupId
+            tasks[index].dueDate = task.dueDate
+            tasks[index].updatedAt = task.updatedAt
+            delegate?.singleTaskUpdated(self, atIndexPath: indexPath(for: tasks[index]))
+        }
+    }
+
     func fetchTasks() {
         connectionManager.fetchTasks(for: parentGroup) { (result) in
             DispatchQueue.main.async {
@@ -49,14 +82,31 @@ public class TMTasksDataSource {
                         }
                     }
                     self.delegate?.tasksUpdated(self)
+                    print("delegeate: tasksUpdated gets called.")
                 }
             }
         }
     }
 
-    func deleteTask(task: TMTask) {
-        connectionManager.delete(task: task) {
-            
+    func deleteTask(taskAtIndexPath indexPath: IndexPath, completionHandler: @escaping (Bool) -> Void) {
+        let task: TMTask
+        if indexPath.section == 0 {
+            task = unfinishedTasks[indexPath.row]
+        } else {
+            task = finishedTasks[indexPath.row]
+        }
+        DispatchQueue.global(qos: .background).sync {
+            connectionManager.delete(task: task) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(_):
+                        self.tasks.removeAll { $0 == task }
+                        completionHandler(true)
+                    case .failure(_):
+                        completionHandler(false)
+                    }
+                }
+            }
         }
     }
 }
@@ -65,8 +115,8 @@ extension TMTasksDataSource: TaskListTableViewCellDelegate {
     func toggledDoneStatus(_ cell: TaskListTableViewCell, task: TMTask) {
         let index = self.tasks.firstIndex(of: task)
         if let index = index {
-            let oldDoneStatus = tasks[index].doneStatus
-            tasks[index].doneStatus = !oldDoneStatus
+            let oldDoneStatus = tasks[index].doneStatus!
+            tasks[index].doneStatus! = !oldDoneStatus
             delegate?.tasksUpdated(self)
         }
     }

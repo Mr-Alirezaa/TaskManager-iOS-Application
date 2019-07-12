@@ -22,7 +22,7 @@ class TaskListTableViewCell: UITableViewCell {
     var delegate: TaskListTableViewCellDelegate?
 
     private func toggleCheck() {
-        task.doneStatus = task.doneStatus ? false : true
+        task.doneStatus = task.doneStatus! ? false : true
         setNeedsLayout()
     }
 
@@ -32,7 +32,7 @@ class TaskListTableViewCell: UITableViewCell {
         self.backgroundView = UIView()
         self.backgroundColor = .clear
 
-        if task.doneStatus {
+        if task.doneStatus! {
             checkButton.setImage(UIImage(named: "check-circle"), for: .normal)
             self.contentView.backgroundColor = TMColors.lightBlue.withAlphaComponent(0.7)
             taskTitleLabel.alpha = 0.5

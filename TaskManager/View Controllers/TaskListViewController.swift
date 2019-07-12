@@ -49,13 +49,30 @@ class TaskListViewController: UIViewController {
 }
 
 extension TaskListViewController: ModalViewControllerDelegate {
-
     func viewDismissed() {
         dataSource.fetchTasks()
+    }
+
+    func taskUpdated(task: TMTask) {
+        dataSource.updateTask(task: task)
     }
 }
 
 extension TaskListViewController: TMTasksDataSourceDelegate {
+    func singleTaskRemoved(_ dataSource: TMTasksDataSource, atIndexPath indexPath: IndexPath) {
+        self.dataSource = dataSource
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+
+        self.tableView.refreshControl?.endRefreshing()
+
+    }
+
+    func singleTaskUpdated(_ dataSource: TMTasksDataSource, atIndexPath indexPath: IndexPath) {
+        self.dataSource = dataSource
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+
+        self.tableView.refreshControl?.endRefreshing()
+    }
 
     func tasksUpdated(_ dataSource: TMTasksDataSource) {
         self.dataSource = dataSource
@@ -130,12 +147,37 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
         return label
     }
 
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (deleteAction, view, completionHandler) in
-            DispatchQueue.global(qos: .background).sync {
-                dataSource.deleteTask
+            let newCompletionHandler: (Bool) -> Void = {
+                switch $0 {
+                case true:
+                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                    completionHandler(true)
+                case false:
+                    completionHandler(false)
+                }
             }
+            self.dataSource.deleteTask(taskAtIndexPath: indexPath, completionHandler: newCompletionHandler)
         }
+        deleteAction.image = UIImage(named: "trash")
+
+        let editAction = UIContextualAction(style: .normal, title: nil) { (contextualAction, view, completrionHandler) in
+            let editTaskViewController = self.storyboard?.instantiateViewController(withIdentifier: "new-task-viewcontroller") as! NewTaskViewController
+            self.navigationController?.modalPresentationStyle = .pageSheet
+            editTaskViewController.isEditingMode = true
+            editTaskViewController.editingTask = self.dataSource.getTask(atIndexPath: indexPath)
+            editTaskViewController.group = self.taskGroup
+            editTaskViewController.delegate = self
+            self.navigationController?.present(editTaskViewController, animated: true)
+        }
+        editAction.image = UIImage(named: "edit")
+
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
+
+        
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
