@@ -29,7 +29,7 @@ class GroupListViewController: UIViewController {
     }
     
     func fetchTaskGroups() {
-        connectionManager.fetchTaskGroups(for: User.test) { (result) in
+        connectionManager.fetchTaskGroups { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let groups):
@@ -81,7 +81,10 @@ extension GroupListViewController: UITableViewDelegate, UITableViewDataSource {
 
         let taskListViewController = self.storyboard?.instantiateViewController(withIdentifier: "task-list-viewcontroller") as! TaskListViewController
 
-        taskListViewController.taskGroup = taskGroups[indexPath.row]
+        let taskGroup = taskGroups[indexPath.row]
+
+        taskListViewController.navigationItem.title = taskGroup.name
+        taskListViewController.taskGroup = taskGroup
 
         self.navigationController?.pushViewController(taskListViewController, animated: true)
     }
