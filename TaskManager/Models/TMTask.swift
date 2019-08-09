@@ -10,14 +10,20 @@ import Foundation
 
 struct TMTask {
     var id: Int
-    var taskName: String
+    var name: String
     var dueDate: String
-    var doneStatus: Bool
-    var groupId: Int
+    var doneStatus: Bool?
+    var groupId: Int?
     var createdAt: String
     var updatedAt: String
 
     var taskDescription: String?
+
+    mutating public func toggleDoneStatus() {
+        doneStatus = !doneStatus!
+    }
+
+    
 }
 
 extension TMTask: CustomStringConvertible {
@@ -26,11 +32,11 @@ extension TMTask: CustomStringConvertible {
 
         --------------------------------------------
         Task with id: \(self.id),
-        name: \(self.taskName),
+        name: \(self.name),
         createdAt: \(self.createdAt),
         updatedAt: \(self.updatedAt),
-        doneStatus: \(doneStatus),
-        groupId: \(self.groupId)
+        doneStatus: \(doneStatus ?? false),
+        groupId: \(self.groupId ?? -1)
         --------------------------------------------
 
         """
@@ -43,12 +49,18 @@ extension TMTask: CustomStringConvertible {
 extension TMTask: Codable {
     enum CodingKeys: String, CodingKey {
         case id
-        case taskName
+        case name = "taskName"
         case dueDate = "executionTime"
         case doneStatus
         case createdAt
         case updatedAt
         case taskDescription
         case groupId
+    }
+}
+
+extension TMTask: Equatable {
+    static func ==(lhs: TMTask, rhs: TMTask) -> Bool {
+        return lhs.id == rhs.id
     }
 }
