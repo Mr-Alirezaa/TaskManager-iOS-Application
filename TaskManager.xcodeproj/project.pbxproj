@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C02E70E722B14D670058BCA7 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E70E622B14D670058BCA7 /* TaskDetailsViewController.swift */; };
 		C052938D22AD26F300281EDB /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C052938C22AD26F300281EDB /* GroupListViewController.swift */; };
+		C058FF4A2300AFF100C39377 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058FF492300AFF100C39377 /* Result.swift */; };
 		C06B133122A7138600FF86D4 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08470C022915C3F00C65264 /* ConnectionManager.swift */; };
 		C06B133222A713C200FF86D4 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC53C2290067400C06D80 /* OnboardingViewController.swift */; };
 		C06B133322A713C200FF86D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFC56222905EBD00C06D80 /* LoginViewController.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		C02E70E622B14D670058BCA7 /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
 		C052938C22AD26F300281EDB /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
+		C058FF492300AFF100C39377 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		C06B131F22A7117500FF86D4 /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08470C022915C3F00C65264 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		C086ACEF22C2AFCA004256EA /* TMTasksDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTasksDataSource.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				C0B394F022C106D600EAE13D /* TMTask.swift */,
 				C086ACEF22C2AFCA004256EA /* TMTasksDataSource.swift */,
 				C09F91C422D23E5300430AD5 /* TMGroupsDataSource.swift */,
+				C058FF492300AFF100C39377 /* Result.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				C0E9FA5922D1226200DF24A4 /* AZPersianMonthType.swift in Sources */,
 				C0E9FA5C22D1226200DF24A4 /* AZGregorianMonthType.swift in Sources */,
 				C09F91C522D23E5300430AD5 /* TMGroupsDataSource.swift in Sources */,
+				C058FF4A2300AFF100C39377 /* Result.swift in Sources */,
 				C086ACF022C2AFCA004256EA /* TMTasksDataSource.swift in Sources */,
 				C0E9FA5D22D1226200DF24A4 /* AZMonthManager.swift in Sources */,
 				C0E9FA5A22D1226200DF24A4 /* DayType.swift in Sources */,
