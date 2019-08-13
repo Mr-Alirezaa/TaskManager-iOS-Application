@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
                         }
                     case .success(let user):
                         let userDefaults = UserDefaults.standard
-                        userDefaults.set(User.test.token!, forKey: TMUserDefualtsKeys.apiToken)
+                        userDefaults.set(user.token!, forKey: TMUserDefualtsKeys.apiToken)
                         userDefaults.set(user.email, forKey: TMUserDefualtsKeys.lastLoginEmail)
                         
                         let nextViewController = self?.storyboard?.instantiateViewController(withIdentifier: "firstAfterLogin")
